@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0](https://github.com/AtaCanYmc/vitralis/compare/vitralis-v1.1.0...vitralis-v1.2.0) (2026-09-01)
+
+
+### ✨ Features & New Capabilities
+
+* add safe-area insets for modern mobile devices and adjust header padding ([ce04ebd](https://github.com/AtaCanYmc/vitralis/commit/ce04ebde5ec3423ff428e88e594e05eeb3fe9d8b))
+* enhance layout and styling for responsiveness in various components ([81080a0](https://github.com/AtaCanYmc/vitralis/commit/81080a025a66622602e2b8dcb02c9ad1a3f562df))
+* replace hardcoded logo paths with dynamic LOGO_URL constant ([6891c58](https://github.com/AtaCanYmc/vitralis/commit/6891c587ec3cb7319b3ddf7cffb2e3a044fa9cb0))
+
 ## [1.1.0](https://github.com/AtaCanYmc/vitralis/compare/vitralis-v1.0.0...vitralis-v1.1.0) (2026-09-01)
 
 
