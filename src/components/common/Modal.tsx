@@ -44,7 +44,7 @@ export const Modal: React.FC<ModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-2 sm:p-6 overflow-y-auto">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-slate-950/60 dark:bg-slate-950/80 backdrop-blur-sm transition-opacity animate-in fade-in"
@@ -53,10 +53,10 @@ export const Modal: React.FC<ModalProps> = ({
 
       {/* Modal Dialog Content */}
       <div
-        className={`relative w-full ${maxWidthClasses[maxWidth]} my-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden z-10 animate-in zoom-in-95 duration-200 text-slate-900 dark:text-slate-100`}
+        className={`relative w-full ${maxWidthClasses[maxWidth]} my-2 sm:my-8 rounded-3xl sm:rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden z-10 animate-in slide-in-from-bottom-6 sm:slide-in-from-bottom-0 sm:zoom-in-95 duration-200 text-slate-900 dark:text-slate-100 max-h-[90vh] flex flex-col`}
         onClick={e => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between p-5 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/90">
+        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/90 shrink-0">
           <div>
             <h3 className="font-bold text-lg text-slate-900 dark:text-slate-100">{title}</h3>
             {subtitle && <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{subtitle}</p>}
@@ -69,7 +69,7 @@ export const Modal: React.FC<ModalProps> = ({
           </button>
         </div>
 
-        <div className="p-5 max-h-[80vh] overflow-y-auto">{children}</div>
+        <div className="p-4 sm:p-5 overflow-y-auto flex-1">{children}</div>
       </div>
     </div>
   );

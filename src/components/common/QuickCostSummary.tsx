@@ -24,31 +24,31 @@ export const QuickCostSummary: React.FC = () => {
   const b = project.breakdown;
 
   return (
-    <div className="relative rounded-3xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 p-5 md:p-6 shadow-md dark:shadow-xl overflow-hidden transition-colors duration-200">
+    <div className="relative rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 p-4 sm:p-5 md:p-6 shadow-xs dark:shadow-xl overflow-hidden transition-colors duration-200">
       {/* Subtle craftsman hairline accent line at top */}
       <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-amber-500/80 via-indigo-500/80 to-emerald-500/80" />
 
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-6">
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-5 sm:gap-6">
         
         {/* Main Final Selling Price Ledger Block */}
-        <div className="flex items-start sm:items-center gap-4 border-b lg:border-b-0 lg:border-r border-slate-200 dark:border-slate-800/80 pb-5 lg:pb-0 lg:pr-8 shrink-0">
-          <div className="w-13 h-13 rounded-2xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-amber-500 shrink-0 shadow-sm dark:shadow-inner">
-            <Sparkles className="w-6 h-6" />
+        <div className="flex items-start sm:items-center gap-3.5 sm:gap-4 border-b lg:border-b-0 lg:border-r border-slate-200 dark:border-slate-800/80 pb-4 lg:pb-0 lg:pr-8 shrink-0">
+          <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-2xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-amber-500 shrink-0 shadow-xs dark:shadow-inner">
+            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
 
-          <div>
+          <div className="min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+              <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                 {t.summary.finalPrice}
               </span>
-              <span className="text-[10px] font-mono font-bold px-2 py-0.2 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30">
+              <span className="text-[9px] sm:text-[10px] font-mono font-bold px-1.5 sm:px-2 py-0.2 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30">
                 +{formatPercent(project.marginRisk.targetProfitMarginPercentage)} Kar
               </span>
             </div>
-            <div className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-0.5 font-mono">
+            <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-0.5 font-mono truncate">
               {formatCurrency(b.finalSellingPrice, activeCurrency)}
             </div>
-            <div className="text-xs text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-2.5 font-mono">
+            <div className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5 sm:mt-1 flex items-center gap-2 font-mono flex-wrap">
               <span>Temel: <b className="text-slate-800 dark:text-slate-200">{formatCurrency(b.rawBaseCost, activeCurrency)}</b></span>
               <span className="text-slate-400 dark:text-slate-600">•</span>
               <span>Net Kar: <b className="text-emerald-600 dark:text-emerald-400">+{formatCurrency(b.profitAmount, activeCurrency)}</b></span>

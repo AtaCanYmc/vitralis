@@ -7,11 +7,13 @@ import type { BeforeInstallPromptEvent } from '../../types/studio';
 interface PWAInstallBannerProps {
   deferredPrompt: BeforeInstallPromptEvent | null;
   onInstall: () => void;
+  onOpenGuide: () => void;
   isInstallable: boolean;
 }
 
 export const PWAInstallBanner: React.FC<PWAInstallBannerProps> = ({
   onInstall,
+  onOpenGuide,
   isInstallable,
 }) => {
   const { defaults } = useStudio();
@@ -62,7 +64,7 @@ export const PWAInstallBanner: React.FC<PWAInstallBannerProps> = ({
             {t.app.pwaInstallDesc}
           </p>
 
-          <div className="flex items-center gap-2 mt-3">
+          <div className="flex items-center gap-2 mt-3 flex-wrap">
             <button
               onClick={onInstall}
               className="tactile-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shadow-md shadow-indigo-950/30 transition-all"
@@ -71,8 +73,14 @@ export const PWAInstallBanner: React.FC<PWAInstallBannerProps> = ({
               <span>{t.app.installBtn}</span>
             </button>
             <button
+              onClick={onOpenGuide}
+              className="tactile-btn px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-indigo-600 dark:text-indigo-400 text-xs font-semibold transition-all border border-slate-200 dark:border-slate-700"
+            >
+              Nasıl Kurulur?
+            </button>
+            <button
               onClick={() => setDismissed(true)}
-              className="tactile-btn px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 text-xs font-medium transition-all"
+              className="tactile-btn px-2.5 py-1.5 rounded-xl text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 text-xs font-medium transition-all"
             >
               Daha Sonra
             </button>

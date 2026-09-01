@@ -17,6 +17,7 @@ import { PrintableQuote } from './components/quote/PrintableQuote';
 import { StudioSettings } from './components/studio/StudioSettings';
 import { ArtisanToolsModal } from './components/tools/ArtisanToolsModal';
 import { PWAInstallBanner } from './components/pwa/PWAInstallBanner';
+import { PWAInstallGuideModal } from './components/pwa/PWAInstallGuideModal';
 import {
   ChevronDown,
   ChevronUp,
@@ -38,8 +39,20 @@ const ALL_SECTIONS: SectionKey[] = ['glass', 'consumables', 'labor', 'equipment'
 const MainContent: React.FC = () => {
   const { activeTab } = useProject();
   const [isToolsOpen, setIsToolsOpen] = useState(false);
+  const [isPwaGuideOpen, setIsPwaGuideOpen] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [isInstallable, setIsInstallable] = useState(false);
+
+  // First visit check: show PWA installation guide once
+  useEffect(() => {
+    const hasSeenGuide = localStorage.getItem('vitralis_pwa_guide_seen_v1');
+    if (!hasSeenGuide) {
+      const timer = setTimeout(() => {
+        setIsPwaGuideOpen(true);
+      }, 700);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   // Accordion State: By default all sections are open, user can collapse/expand individually or together
   const [expandedSections, setExpandedSections] = useState<Record<SectionKey, boolean>>({
@@ -118,6 +131,7 @@ const MainContent: React.FC = () => {
       {/* App Header */}
       <Header
         onOpenTools={() => setIsToolsOpen(true)}
+        onOpenPwaGuide={() => setIsPwaGuideOpen(true)}
         deferredPrompt={deferredPrompt}
         onInstallPwa={handleInstallPwa}
         isInstallable={isInstallable}
@@ -267,6 +281,16 @@ const MainContent: React.FC = () => {
 
       {/* PWA Install Notification / Offline Banner */}
       <PWAInstallBanner
+        deferredPrompt={deferredPrompt}
+        onInstall={handleInstallPwa}
+        onOpenGuide={() => setIsPwaGuideOpen(true)}
+        isInstallable={isInstallable}
+      />
+
+      {/* PWA First-Visit / On-Demand Install Guide Modal */}
+      <PWAInstallGuideModal
+        isOpen={isPwaGuideOpen}
+        onClose={() => setIsPwaGuideOpen(false)}
         deferredPrompt={deferredPrompt}
         onInstall={handleInstallPwa}
         isInstallable={isInstallable}

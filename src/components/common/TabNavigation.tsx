@@ -53,9 +53,9 @@ export const TabNavigation: React.FC = () => {
   ];
 
   return (
-    <nav className="w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/60 py-2 px-4 sm:px-6 transition-colors duration-200">
-      <div className="max-w-7xl mx-auto flex items-center justify-start sm:justify-center gap-1 overflow-x-auto no-scrollbar">
-        <div className="flex items-center gap-1 p-1 bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800/80 rounded-2xl shadow-sm dark:shadow-inner">
+    <nav className="w-full bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/60 py-1.5 sm:py-2 px-2 sm:px-6 transition-colors duration-200 sticky top-15 sm:top-16 md:top-17 z-30">
+      <div className="max-w-7xl mx-auto flex items-center justify-start sm:justify-center gap-1 overflow-x-auto no-scrollbar touch-pan-x px-1">
+        <div className="flex items-center gap-1 p-1 bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800/80 rounded-2xl shadow-xs dark:shadow-inner shrink-0 sm:shrink">
           {navItems.map(item => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
