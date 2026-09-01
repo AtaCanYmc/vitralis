@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <title>Vitralis | Cam Vitray Atölye Maliyet & Teklif Hesaplayıcı</title>
     
-    <!-- Favicon & PWA Icons -->
+    <!-- Favicon & PWA Icons (RealFaviconGenerator) -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/pwa-192x192.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Vitralis" />
+    <link rel="manifest" href="/site.webmanifest" />
     
     <!-- PWA & Mobile Meta Tags -->
     <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
@@ -15,7 +19,6 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Vitralis" />
     <meta name="description" content="Cam vitray atölyeleri, Tiffany tekniği ve kurşunlu vitray sanatçıları için profesyonel maliyet hesaplama, amortisman, elektrik ve teklif hazırlama Progressive Web App (PWA)." />
 
     <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
@@ -23,7 +26,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
-  <body class="bg-slate-950 text-slate-100 antialiased min-h-screen selection:bg-indigo-500 selection:text-white transition-colors duration-300">
+  <body class="bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased min-h-screen selection:bg-indigo-500 selection:text-white transition-colors duration-200">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

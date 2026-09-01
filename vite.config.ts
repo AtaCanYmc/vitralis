@@ -10,32 +10,18 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'pwa-192x192.svg', 'pwa-512x512.svg'],
-      manifest: {
-        name: 'Vitralis - Stained Glass Studio Cost Calculator',
-        short_name: 'Vitralis',
-        description: 'Professional Cost Accounting and Quotation Progressive Web App for Stained Glass & Tiffany Artisans',
-        theme_color: '#0f172a',
-        background_color: '#0b0f19',
-        display: 'standalone',
-        orientation: 'portrait-primary',
-        icons: [
-          {
-            src: '/pwa-192x192.svg',
-            sizes: '192x192',
-            type: 'image/svg+xml',
-            purpose: 'any maskable',
-          },
-          {
-            src: '/pwa-512x512.svg',
-            sizes: '512x512',
-            type: 'image/svg+xml',
-            purpose: 'any maskable',
-          },
-        ],
-      },
+      includeAssets: [
+        'favicon.svg',
+        'favicon-96x96.png',
+        'favicon.ico',
+        'apple-touch-icon.png',
+        'web-app-manifest-192x192.png',
+        'web-app-manifest-512x512.png',
+        'site.webmanifest',
+      ],
+      manifest: false, // Use site.webmanifest directly from public folder
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,ico,json}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,ico,json,webmanifest}'],
       },
     }),
   ],
