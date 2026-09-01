@@ -171,7 +171,7 @@ export const ArtisanToolsModal: React.FC<ArtisanToolsModalProps> = ({ isOpen, on
             />
           </div>
 
-          <div className="p-3 rounded-xl bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-500/20 flex items-center justify-between">
+          <div className="p-3 rounded-xl bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div>
               <span className="text-xs text-slate-500 dark:text-slate-400 block">{t.toolsModal.estimatedFoil}</span>
               <span className="text-xl font-black text-indigo-700 dark:text-indigo-300 font-mono">
@@ -183,7 +183,7 @@ export const ArtisanToolsModal: React.FC<ArtisanToolsModalProps> = ({ isOpen, on
                 setToolFoilMeters(estimatedFoilMeters);
                 updateFoil({ lengthMeters: estimatedFoilMeters });
               }}
-              className="tactile-btn px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all"
+              className="tactile-btn w-full sm:w-auto px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all text-center"
             >
               Folyoya Yaz
             </button>
@@ -191,7 +191,7 @@ export const ArtisanToolsModal: React.FC<ArtisanToolsModalProps> = ({ isOpen, on
         </div>
 
         {/* 3. Circle Glass Area Calculator */}
-        <div className="rounded-2xl bg-slate-50/80 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 p-4.5 space-y-3">
+        <div className="rounded-2xl bg-slate-50/80 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 p-4 sm:p-4.5 space-y-3">
           <div className="flex items-center gap-2">
             <Circle className="w-5 h-5 text-sky-500" />
             <div>
@@ -210,7 +210,7 @@ export const ArtisanToolsModal: React.FC<ArtisanToolsModalProps> = ({ isOpen, on
               suffix="cm"
             />
 
-            <div className="p-3 rounded-xl bg-sky-50 dark:bg-sky-950/30 border border-sky-200 dark:border-sky-500/20 flex items-center justify-between">
+            <div className="p-3 rounded-xl bg-sky-50 dark:bg-sky-950/30 border border-sky-200 dark:border-sky-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <div>
                 <span className="text-[11px] text-slate-500 dark:text-slate-400 block">{t.toolsModal.circleAreaResult}</span>
                 <span className="text-sm font-bold text-sky-700 dark:text-sky-300 font-mono">
@@ -219,7 +219,7 @@ export const ArtisanToolsModal: React.FC<ArtisanToolsModalProps> = ({ isOpen, on
               </div>
               <button
                 onClick={handleAddCircleGlass}
-                className="tactile-btn px-3 py-1.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold transition-all"
+                className="tactile-btn w-full sm:w-auto px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold transition-all text-center"
               >
                 Cam Ekle
               </button>

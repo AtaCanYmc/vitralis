@@ -141,7 +141,7 @@ const MainContent: React.FC = () => {
       <TabNavigation />
 
       {/* Main Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8 space-y-6">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8 pb-28 md:pb-10 space-y-5 sm:space-y-6">
         {activeTab === 'calculator' && (
           <div className="space-y-5 animate-in fade-in duration-300">
             {/* Top Quick Live Calculation Summary Card */}

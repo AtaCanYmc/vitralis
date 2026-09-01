@@ -100,20 +100,20 @@ export const PWAInstallGuideModal: React.FC<PWAInstallGuideModalProps> = ({
           <button
             type="button"
             onClick={() => setActivePlatform('ios')}
-            className={`tactile-btn flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-semibold transition-all ${
+            className={`tactile-btn flex-1 flex items-center justify-center gap-1.5 py-2 px-2 sm:px-3 rounded-lg text-xs font-semibold transition-all ${
               activePlatform === 'ios'
                 ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
             }`}
           >
             <Smartphone className="w-3.5 h-3.5" />
-            <span>iPhone / iPad (iOS)</span>
+            <span><span className="hidden sm:inline">iPhone / iPad </span>(iOS)</span>
           </button>
 
           <button
             type="button"
             onClick={() => setActivePlatform('android')}
-            className={`tactile-btn flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-semibold transition-all ${
+            className={`tactile-btn flex-1 flex items-center justify-center gap-1.5 py-2 px-2 sm:px-3 rounded-lg text-xs font-semibold transition-all ${
               activePlatform === 'android'
                 ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
@@ -126,14 +126,14 @@ export const PWAInstallGuideModal: React.FC<PWAInstallGuideModalProps> = ({
           <button
             type="button"
             onClick={() => setActivePlatform('desktop')}
-            className={`tactile-btn flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-semibold transition-all ${
+            className={`tactile-btn flex-1 flex items-center justify-center gap-1.5 py-2 px-2 sm:px-3 rounded-lg text-xs font-semibold transition-all ${
               activePlatform === 'desktop'
                 ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
             }`}
           >
             <Laptop className="w-3.5 h-3.5" />
-            <span>Masaüstü (Mac / Win)</span>
+            <span><span className="hidden sm:inline">Masaüstü </span>(PC/Mac)</span>
           </button>
         </div>
 
