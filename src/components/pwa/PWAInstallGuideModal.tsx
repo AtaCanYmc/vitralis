@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { Modal } from '../common/Modal';
 import { useStudio } from '../../context/StudioContext';
+import { LOGO_URL } from '../../constants/defaults';
 import { getTranslation } from '../../i18n';
 import type { BeforeInstallPromptEvent } from '../../types/studio';
 
@@ -73,7 +74,7 @@ export const PWAInstallGuideModal: React.FC<PWAInstallGuideModalProps> = ({
         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-900/40 via-purple-900/30 to-amber-900/20 border border-indigo-500/30 p-4 sm:p-5">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-2xl bg-white dark:bg-slate-900 p-2 border border-indigo-200 dark:border-indigo-500/40 shrink-0 shadow-lg flex items-center justify-center">
-              <img src="/favicon.svg" alt="Vitralis Logo" className="w-8 h-8 object-contain" />
+              <img src={LOGO_URL} alt="Vitralis Logo" className="w-8 h-8 object-contain" />
             </div>
             <div>
               <div className="flex items-center gap-2">

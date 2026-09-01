@@ -1,6 +1,8 @@
 import type { CurrencyCode, CurrencyConfig, StudioDefaults, StudioProfile } from '../types/studio';
 import type { EquipmentItem, GlassItem } from '../types/project';
 
+export const LOGO_URL = `${import.meta.env.BASE_URL}favicon.svg`;
+
 export const CURRENCIES: Record<CurrencyCode, CurrencyConfig> = {
   TRY: {
     code: 'TRY',

@@ -19,6 +19,7 @@ import { useProject } from '../../context/ProjectContext';
 import { useStudio } from '../../context/StudioContext';
 import { formatArea, formatCurrency, formatHours } from '../../utils/formatters';
 import { exportProjectToJson, generateClientQuoteText, printQuotationSheet } from '../../utils/exportUtils';
+import { LOGO_URL } from '../../constants/defaults';
 import { getTranslation } from '../../i18n';
 
 export const PrintableQuote: React.FC = () => {
@@ -104,7 +105,7 @@ export const PrintableQuote: React.FC = () => {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 border-b border-slate-200 dark:border-slate-800 pb-5">
           <div className="flex items-center gap-3.5">
             <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-950 p-1 border border-slate-200 dark:border-slate-800 flex items-center justify-center shrink-0 shadow-sm dark:shadow-inner">
-              <img src="/favicon.svg" alt="Logo" className="w-8 h-8 object-contain" />
+              <img src={LOGO_URL} alt="Logo" className="w-8 h-8 object-contain" />
             </div>
             <div>
               <h2 className="text-xl md:text-2xl font-black tracking-tight text-slate-900 dark:text-white">

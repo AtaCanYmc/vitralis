@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 import { useStudio } from '../../context/StudioContext';
 import { useProject } from '../../context/ProjectContext';
-import { CURRENCIES } from '../../constants/defaults';
+import { CURRENCIES, LOGO_URL } from '../../constants/defaults';
 import type { CurrencyCode, BeforeInstallPromptEvent } from '../../types/studio';
 import { getTranslation } from '../../i18n';
 import { CustomSelect } from './CustomSelect';
@@ -78,7 +78,7 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="flex items-center gap-2.5 sm:gap-3">
               <div className="relative group cursor-pointer shrink-0">
                 <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-xl bg-slate-900 border border-slate-700/60 p-1 flex items-center justify-center shadow-inner group-hover:border-amber-500/50 transition-all">
-                  <img src="/favicon.svg" alt="Vitralis Logo" className="w-6 h-6 sm:w-7 sm:h-7 object-contain drop-shadow" />
+                  <img src={LOGO_URL} alt="Vitralis Logo" className="w-6 h-6 sm:w-7 sm:h-7 object-contain drop-shadow" />
                 </div>
               </div>
 
@@ -255,7 +255,7 @@ export const Header: React.FC<HeaderProps> = ({
               <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
                 <div className="flex items-center gap-2">
                   <div className="w-7 h-7 rounded-lg bg-slate-950 p-0.5 border border-slate-800 flex items-center justify-center">
-                    <img src="/favicon.svg" alt="Logo" className="w-5 h-5 object-contain" />
+                    <img src={LOGO_URL} alt="Logo" className="w-5 h-5 object-contain" />
                   </div>
                   <span className="font-bold text-sm text-slate-900 dark:text-white">Atölye Menüsü</span>
                 </div>
