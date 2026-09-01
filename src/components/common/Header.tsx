@@ -70,9 +70,9 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800/80 shadow-xs dark:shadow-md transition-colors duration-200">
+      <header className="sticky top-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800/80 shadow-xs dark:shadow-md transition-colors duration-200 pt-safe sm:pt-0">
         <div className="max-w-7xl w-full mx-auto px-3.5 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-15 sm:h-16 md:h-17">
+          <div className="flex items-center justify-between h-16 sm:h-16 md:h-17 py-1 sm:py-0">
             
             {/* Brand Logo & Name */}
             <div className="flex items-center gap-2.5 sm:gap-3">
@@ -247,7 +247,7 @@ export const Header: React.FC<HeaderProps> = ({
           />
 
           {/* Drawer Content */}
-          <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 p-5 shadow-2xl flex flex-col justify-between overflow-y-auto animate-in slide-in-from-right duration-250">
+          <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 p-5 pt-safe pb-safe shadow-2xl flex flex-col justify-between overflow-y-auto animate-in slide-in-from-right duration-250">
             
             <div className="space-y-5">
               

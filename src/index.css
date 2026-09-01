@@ -188,6 +188,20 @@ input[type="number"] {
   background: rgba(148, 163, 184, 0.4);
 }
 
+/* Safe-area insets for modern mobile devices (iOS Notch, Dynamic Island, Android Nav) */
+.pt-safe {
+  padding-top: max(env(safe-area-inset-top, 0px), 8px);
+}
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 8px);
+}
+.pl-safe {
+  padding-left: max(env(safe-area-inset-left, 0px), 0px);
+}
+.pr-safe {
+  padding-right: max(env(safe-area-inset-right, 0px), 0px);
+}
+
 /* High-Legibility Print Styles for Quotations */
 @media print {
   body {
