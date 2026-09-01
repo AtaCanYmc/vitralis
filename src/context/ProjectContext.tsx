@@ -14,7 +14,7 @@ import type {
 import { useStudio } from './StudioContext';
 import { recalculateEntireProject } from '../utils/calculations';
 import { PROJECT_TEMPLATES } from '../constants/templates';
-import { SAMPLE_GLASS_ITEMS } from '../constants/defaults';
+import { SAMPLE_GLASS_ITEMS, EMPTY_COST_BREAKDOWN } from '../constants/defaults';
 import confetti from 'canvas-confetti';
 
 const ACTIVE_PROJECT_KEY = 'vitralis_active_project_v1';
@@ -146,7 +146,7 @@ export const ProjectProvider: React.FC<{ children: React.ReactNode }> = ({ child
         vatTaxPercentage: defaults.defaultVatPercentage,
         discountPercentage: 0,
       },
-      breakdown: {} as any,
+      breakdown: EMPTY_COST_BREAKDOWN,
     };
 
     return recalculateEntireProject(rawProject);

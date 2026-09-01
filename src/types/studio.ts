@@ -59,3 +59,9 @@ export interface StudioContextState {
   setCurrency: (currency: CurrencyCode) => void;
   resetToFactoryDefaults: () => void;
 }
+
+export interface BeforeInstallPromptEvent extends Event {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed'; platform: string }>;
+}
+

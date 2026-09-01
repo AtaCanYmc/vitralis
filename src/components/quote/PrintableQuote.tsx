@@ -43,14 +43,14 @@ export const PrintableQuote: React.FC = () => {
     <div className="space-y-6">
       
       {/* Top Action Controls (Hidden on Print) */}
-      <div className="no-print flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-2xl bg-slate-900 border border-slate-800 shadow-lg">
+      <div className="no-print flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-md dark:shadow-lg transition-colors duration-200">
         <div className="flex items-center gap-2.5">
-          <div className="p-2 rounded-xl bg-slate-950 border border-slate-800 text-indigo-400">
+          <div className="p-2 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-indigo-600 dark:text-indigo-400">
             <FileText className="w-4 h-4" />
           </div>
           <div>
-            <h3 className="text-xs font-bold text-slate-100">{t.quote.title}</h3>
-            <p className="text-[11px] text-slate-400 font-normal">{t.quote.subtitle}</p>
+            <h3 className="text-xs font-bold text-slate-900 dark:text-slate-100">{t.quote.title}</h3>
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 font-normal">{t.quote.subtitle}</p>
           </div>
         </div>
 
@@ -59,7 +59,7 @@ export const PrintableQuote: React.FC = () => {
           <button
             type="button"
             onClick={() => setShowDetailedBreakdown(!showDetailedBreakdown)}
-            className="tactile-btn px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition-all"
+            className="tactile-btn px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold border border-slate-200 dark:border-slate-700 transition-all"
           >
             {showDetailedBreakdown ? 'Özet Görünüm' : 'Detaylı Kalemler'}
           </button>
@@ -70,17 +70,17 @@ export const PrintableQuote: React.FC = () => {
             className={`tactile-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
               copied
                 ? 'bg-emerald-500 text-white'
-                : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700'
+                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
             }`}
           >
-            {copied ? <CheckCircle2 className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5 text-emerald-400" />}
+            {copied ? <CheckCircle2 className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />}
             <span>{copied ? t.quote.copiedSuccess : t.quote.copyTextBtn}</span>
           </button>
 
           {/* JSON Export */}
           <button
             onClick={() => exportProjectToJson(project)}
-            className="tactile-btn p-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all"
+            className="tactile-btn p-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition-all"
             title="JSON İndir"
           >
             <FileDown className="w-4 h-4" />
@@ -89,7 +89,7 @@ export const PrintableQuote: React.FC = () => {
           {/* Print / Save PDF */}
           <button
             onClick={printQuotationSheet}
-            className="tactile-btn flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shadow-md shadow-indigo-950/40 transition-all"
+            className="tactile-btn flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shadow-md shadow-indigo-950/30 transition-all"
           >
             <Printer className="w-3.5 h-3.5" />
             <span>{t.quote.printBtn}</span>
@@ -98,12 +98,12 @@ export const PrintableQuote: React.FC = () => {
       </div>
 
       {/* Printable Quotation Document Sheet */}
-      <div className="printable-document bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 rounded-3xl p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-xl space-y-7">
+      <div className="printable-document bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 rounded-3xl p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-md dark:shadow-xl space-y-7 transition-colors duration-200">
         
         {/* Document Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 border-b border-slate-200 dark:border-slate-800 pb-5">
           <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-xl bg-slate-950 p-1 border border-slate-800 flex items-center justify-center shrink-0 shadow-inner">
+            <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-950 p-1 border border-slate-200 dark:border-slate-800 flex items-center justify-center shrink-0 shadow-sm dark:shadow-inner">
               <img src="/favicon.svg" alt="Logo" className="w-8 h-8 object-contain" />
             </div>
             <div>
@@ -141,7 +141,7 @@ export const PrintableQuote: React.FC = () => {
                   value={meta.clientName}
                   onChange={e => updateMetadata({ clientName: e.target.value })}
                   placeholder="Müşteri Adı Soyadı"
-                  className="bg-transparent font-bold text-slate-900 dark:text-slate-100 border-b border-dashed border-slate-400 focus:outline-none flex-1"
+                  className="bg-transparent font-bold text-slate-900 dark:text-slate-100 border-b border-dashed border-slate-300 dark:border-slate-600 focus:outline-none flex-1"
                 />
               </div>
               <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
@@ -151,7 +151,7 @@ export const PrintableQuote: React.FC = () => {
                   value={meta.clientPhone || ''}
                   onChange={e => updateMetadata({ clientPhone: e.target.value })}
                   placeholder="Telefon / E-posta"
-                  className="bg-transparent border-b border-dashed border-slate-400 focus:outline-none flex-1"
+                  className="bg-transparent border-b border-dashed border-slate-300 dark:border-slate-600 focus:outline-none flex-1"
                 />
               </div>
             </div>
@@ -281,7 +281,7 @@ export const PrintableQuote: React.FC = () => {
                   <>
                     {/* Summary row */}
                     <tr>
-                      <td className="py-3 px-3 font-semibold">
+                      <td className="py-3 px-3 font-semibold text-slate-900 dark:text-slate-100">
                         Özel Tasarım Cam Vitray Eseri Üretimi
                       </td>
                       <td className="py-3 px-3 text-center text-slate-600 dark:text-slate-400">1 Adet</td>
@@ -300,7 +300,7 @@ export const PrintableQuote: React.FC = () => {
             <div className="w-72 space-y-1.5 text-xs">
               <div className="flex justify-between text-slate-600 dark:text-slate-400">
                 <span>Ara Toplam:</span>
-                <span className="font-mono font-semibold">{formatCurrency(b.subtotalSellingPrice, activeCurrency)}</span>
+                <span className="font-mono font-semibold text-slate-800 dark:text-slate-200">{formatCurrency(b.subtotalSellingPrice, activeCurrency)}</span>
               </div>
 
               {b.discountAmount > 0 && (
@@ -317,16 +317,16 @@ export const PrintableQuote: React.FC = () => {
                 </div>
               )}
 
-              <div className="pt-2 border-t border-slate-300 dark:border-slate-800 flex justify-between items-center text-base font-bold text-slate-900 dark:text-amber-400">
+              <div className="pt-2 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-base font-bold text-slate-900 dark:text-amber-400">
                 <span>{t.quote.totalPayable}:</span>
-                <span className="font-mono text-lg font-extrabold">{formatCurrency(b.finalSellingPrice, activeCurrency)}</span>
+                <span className="font-mono text-lg font-extrabold text-indigo-700 dark:text-amber-400">{formatCurrency(b.finalSellingPrice, activeCurrency)}</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Stained Glass Care & Maintenance Instructions */}
-        <div className="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-500/30 space-y-1 text-xs">
+        <div className="p-4 rounded-2xl bg-amber-50/80 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-500/30 space-y-1 text-xs">
           <div className="flex items-center gap-1.5 font-bold text-amber-900 dark:text-amber-400">
             <Sparkles className="w-4 h-4" />
             <span>{t.studio.careInstructions}</span>
@@ -348,7 +348,7 @@ export const PrintableQuote: React.FC = () => {
           </div>
 
           <div className="flex flex-col justify-end items-center sm:items-end text-center sm:text-right pt-6 sm:pt-0">
-            <div className="w-48 border-b border-slate-400 dark:border-slate-600 pb-1 mb-1">
+            <div className="w-48 border-b border-slate-300 dark:border-slate-600 pb-1 mb-1">
               <span className="text-[10px] text-slate-400 italic">Yetkili İmza / Kaşe</span>
             </div>
             <span className="font-bold text-slate-900 dark:text-slate-100">{profile.artisanName || 'Vitray Sanatçısı'}</span>

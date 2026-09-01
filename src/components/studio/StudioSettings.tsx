@@ -9,6 +9,7 @@ import {
 import { useStudio } from '../../context/StudioContext';
 import { GlassCard } from '../common/GlassCard';
 import { NumberInput } from '../common/NumberInput';
+import { CustomSelect } from '../common/CustomSelect';
 import { CURRENCIES } from '../../constants/defaults';
 import type { CurrencyCode } from '../../types/studio';
 import { getTranslation } from '../../i18n';
@@ -147,18 +148,17 @@ export const StudioSettings: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           
           <div>
-            <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">{t.studio.currency}</label>
-            <select
+            <CustomSelect<CurrencyCode>
+              label={t.studio.currency}
               value={defaults.currency}
-              onChange={e => setCurrency(e.target.value as CurrencyCode)}
-              className="w-full bg-white dark:bg-slate-950/60 border border-slate-200 dark:border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-indigo-500 font-semibold"
-            >
-              {Object.values(CURRENCIES).map(c => (
-                <option key={c.code} value={c.code} className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">
-                  {c.name}
-                </option>
-              ))}
-            </select>
+              onChange={val => setCurrency(val)}
+              options={Object.values(CURRENCIES).map(c => ({
+                value: c.code,
+                label: `${c.symbol} ${c.code}`,
+                sublabel: c.name,
+              }))}
+              size="md"
+            />
           </div>
 
           <NumberInput

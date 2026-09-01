@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { Modal } from '../common/Modal';
 import { NumberInput } from '../common/NumberInput';
+import { CustomSelect } from '../common/CustomSelect';
 import { useProject } from '../../context/ProjectContext';
 import { useStudio } from '../../context/StudioContext';
 import { ArtisanEstimators } from '../../utils/calculations';
@@ -94,20 +95,17 @@ export const ArtisanToolsModal: React.FC<ArtisanToolsModalProps> = ({ isOpen, on
               suffix="m"
             />
 
-            <div>
-              <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">
-                {t.toolsModal.beadProfile}
-              </label>
-              <select
-                value={beadProfile}
-                onChange={e => setBeadProfile(e.target.value as any)}
-                className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/60 rounded-xl px-2.5 py-2 text-xs text-slate-900 dark:text-slate-200 focus:outline-none focus:border-amber-500"
-              >
-                <option value="flat">{t.toolsModal.beadFlat}</option>
-                <option value="rounded">{t.toolsModal.beadRounded}</option>
-                <option value="high_dome">{t.toolsModal.beadHighDome}</option>
-              </select>
-            </div>
+            <CustomSelect<'flat' | 'rounded' | 'high_dome'>
+              label={t.toolsModal.beadProfile}
+              value={beadProfile}
+              onChange={val => setBeadProfile(val)}
+              options={[
+                { value: 'flat', label: t.toolsModal.beadFlat },
+                { value: 'rounded', label: t.toolsModal.beadRounded },
+                { value: 'high_dome', label: t.toolsModal.beadHighDome },
+              ]}
+              size="sm"
+            />
           </div>
 
           <div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">

@@ -13,6 +13,7 @@ import { useStudio } from '../../context/StudioContext';
 import type { PriceUnit } from '../../types/project';
 import { GlassCard } from '../common/GlassCard';
 import { NumberInput } from '../common/NumberInput';
+import { CustomSelect } from '../common/CustomSelect';
 import { formatArea, formatCurrency } from '../../utils/formatters';
 import { getTranslation } from '../../i18n';
 
@@ -126,17 +127,15 @@ export const GlassSection: React.FC<GlassSectionProps> = ({ isExpanded, onToggle
                   </div>
 
                   <div className="grid grid-cols-2 gap-2">
-                    <select
+                    <CustomSelect
                       value={item.type}
-                      onChange={e => updateGlassItem(item.id, { type: e.target.value })}
-                      className="w-full bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/60 rounded-xl px-2 py-1.5 text-[11px] text-slate-800 dark:text-slate-300 focus:outline-none focus:border-indigo-500"
-                    >
-                      {GLASS_TYPES.map(gt => (
-                        <option key={gt} value={gt} className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">
-                          {gt}
-                        </option>
-                      ))}
-                    </select>
+                      onChange={val => updateGlassItem(item.id, { type: val })}
+                      options={GLASS_TYPES.map(gt => ({
+                        value: gt,
+                        label: gt,
+                      }))}
+                      size="xs"
+                    />
 
                     {/* Shape Selector */}
                     <div className="flex rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/60 p-0.5">
@@ -245,20 +244,17 @@ export const GlassSection: React.FC<GlassSectionProps> = ({ isExpanded, onToggle
                       prefix={activeCurrency.symbol}
                     />
 
-                    <div>
-                      <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1 block">
-                        Birim
-                      </label>
-                      <select
-                        value={item.priceUnit}
-                        onChange={e => updateGlassItem(item.id, { priceUnit: e.target.value as PriceUnit })}
-                        className="w-full bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/60 rounded-xl px-2 py-1.5 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-indigo-500 font-medium"
-                      >
-                        <option value="sqm">/ m²</option>
-                        <option value="sqcm">/ cm²</option>
-                        <option value="sheet">/ Plaka</option>
-                      </select>
-                    </div>
+                    <CustomSelect<PriceUnit>
+                      label="Birim"
+                      value={item.priceUnit}
+                      onChange={val => updateGlassItem(item.id, { priceUnit: val })}
+                      options={[
+                        { value: 'sqm', label: '/ m²' },
+                        { value: 'sqcm', label: '/ cm²' },
+                        { value: 'sheet', label: '/ Plaka' },
+                      ]}
+                      size="sm"
+                    />
                   </div>
 
                   {/* Calculated Subtotal & Delete */}

@@ -1,0 +1,48 @@
+name: CI - Code Quality & Automated Tests
+
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Lint, Test & Build Validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🔍 Lint & Code Quality Check
+        run: npm run lint
+
+      - name: 🛡️ TypeScript Type Checking
+        run: npx tsc -b --noEmit
+
+      - name: 🧪 Run Automated Unit Tests (Vitest)
+        run: npm test
+
+      - name: ⚡ Run Production Build (Vite & PWA Precache)
+        run: npm run build
+
+      - name: 📊 Verify Build Output
+        run: |
+          test -f dist/index.html || exit 1
+          test -f dist/sw.js || exit 1
+          echo "✅ Production artifacts successfully verified!"

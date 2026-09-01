@@ -1,0 +1,44 @@
+# Dependabot configuration for Vitralis
+version: 2
+updates:
+  # 1. NPM Dependencies (weekly automated updates)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Istanbul"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "atacan"
+    commit-message:
+      prefix: "chore(deps)"
+    groups:
+      dev-dependencies:
+        patterns:
+          - "@types/*"
+          - "eslint*"
+          - "@eslint/*"
+          - "typescript*"
+          - "vitest*"
+      core-dependencies:
+        patterns:
+          - "react*"
+          - "lucide-react"
+          - "tailwind*"
+          - "@tailwindcss/*"
+          - "vite-plugin-pwa"
+          - "workbox-*"
+
+  # 2. GitHub Actions Workflows (weekly automated updates)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Istanbul"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(ci)"

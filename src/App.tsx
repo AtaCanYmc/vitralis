@@ -29,6 +29,8 @@ import {
   PieChart,
 } from 'lucide-react';
 
+import type { BeforeInstallPromptEvent } from './types/studio';
+
 type SectionKey = 'glass' | 'consumables' | 'labor' | 'equipment' | 'electricity' | 'margin' | 'chart';
 
 const ALL_SECTIONS: SectionKey[] = ['glass', 'consumables', 'labor', 'equipment', 'electricity', 'margin', 'chart'];
@@ -36,7 +38,7 @@ const ALL_SECTIONS: SectionKey[] = ['glass', 'consumables', 'labor', 'equipment'
 const MainContent: React.FC = () => {
   const { activeTab } = useProject();
   const [isToolsOpen, setIsToolsOpen] = useState(false);
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [isInstallable, setIsInstallable] = useState(false);
 
   // Accordion State: By default all sections are open, user can collapse/expand individually or together
@@ -58,13 +60,13 @@ const MainContent: React.FC = () => {
   };
 
   const expandAll = () => {
-    const next: Record<SectionKey, boolean> = {} as any;
+    const next = {} as Record<SectionKey, boolean>;
     ALL_SECTIONS.forEach(k => (next[k] = true));
     setExpandedSections(next);
   };
 
   const collapseAll = () => {
-    const next: Record<SectionKey, boolean> = {} as any;
+    const next = {} as Record<SectionKey, boolean>;
     ALL_SECTIONS.forEach(k => (next[k] = false));
     setExpandedSections(next);
   };
@@ -74,7 +76,7 @@ const MainContent: React.FC = () => {
   useEffect(() => {
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
-      setDeferredPrompt(e);
+      setDeferredPrompt(e as BeforeInstallPromptEvent);
       setIsInstallable(true);
     };
 

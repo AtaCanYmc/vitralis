@@ -10,8 +10,10 @@ import { useProject } from '../../context/ProjectContext';
 import { useStudio } from '../../context/StudioContext';
 import { GlassCard } from '../common/GlassCard';
 import { NumberInput } from '../common/NumberInput';
+import { CustomSelect } from '../common/CustomSelect';
 import { formatCurrency } from '../../utils/formatters';
 import { getTranslation } from '../../i18n';
+import type { SolderRatio, PatinaType } from '../../types/project';
 
 interface ConsumablesSectionProps {
   isExpanded?: boolean;
@@ -90,35 +92,29 @@ export const ConsumablesSection: React.FC<ConsumablesSectionProps> = ({ isExpand
             {foil.enabled && (
               <div className="space-y-3">
                 <div className="grid grid-cols-2 gap-2">
-                  <div>
-                    <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1 block">
-                      {t.consumables.foilType}
-                    </label>
-                    <select
-                      value={foil.foilType}
-                      onChange={e => updateFoil({ foilType: e.target.value })}
-                      className="w-full bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/60 rounded-xl px-2.5 py-1.5 text-xs text-slate-900 dark:text-slate-200 focus:outline-none focus:border-indigo-500"
-                    >
-                      <option value="Black Backed">Siyah Tabanlı (Black)</option>
-                      <option value="Copper Backed">Bakır Tabanlı (Copper)</option>
-                      <option value="Silver Backed">Gümüş Tabanlı (Silver)</option>
-                    </select>
-                  </div>
+                  <CustomSelect
+                    label={t.consumables.foilType}
+                    value={foil.foilType}
+                    onChange={val => updateFoil({ foilType: val })}
+                    options={[
+                      { value: 'Black Backed', label: 'Siyah Tabanlı (Black)' },
+                      { value: 'Copper Backed', label: 'Bakır Tabanlı (Copper)' },
+                      { value: 'Silver Backed', label: 'Gümüş Tabanlı (Silver)' },
+                    ]}
+                    size="sm"
+                  />
 
-                  <div>
-                    <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1 block">
-                      {t.consumables.foilWidth}
-                    </label>
-                    <select
-                      value={foil.foilWidth}
-                      onChange={e => updateFoil({ foilWidth: e.target.value })}
-                      className="w-full bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/60 rounded-xl px-2.5 py-1.5 text-xs text-slate-900 dark:text-slate-200 focus:outline-none focus:border-indigo-500"
-                    >
-                      <option value="7/32&quot; (5.5mm)">7/32" (5.5mm) - Standart</option>
-                      <option value="3/16&quot; (4.8mm)">3/16" (4.8mm) - İnce</option>
-                      <option value="1/4&quot; (6.4mm)">1/4" (6.4mm) - Kalın</option>
-                    </select>
-                  </div>
+                  <CustomSelect
+                    label={t.consumables.foilWidth}
+                    value={foil.foilWidth}
+                    onChange={val => updateFoil({ foilWidth: val })}
+                    options={[
+                      { value: '7/32" (5.5mm)', label: '7/32" (5.5mm) - Standart' },
+                      { value: '3/16" (4.8mm)', label: '3/16" (4.8mm) - İnce' },
+                      { value: '1/4" (6.4mm)', label: '1/4" (6.4mm) - Kalın' },
+                    ]}
+                    size="sm"
+                  />
                 </div>
 
                 <div className="grid grid-cols-3 gap-2">
@@ -178,20 +174,17 @@ export const ConsumablesSection: React.FC<ConsumablesSectionProps> = ({ isExpand
 
             {solder.enabled && (
               <div className="space-y-3">
-                <div>
-                  <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1 block">
-                    {t.consumables.solderRatio}
-                  </label>
-                  <select
-                    value={solder.solderRatio}
-                    onChange={e => updateSolder({ solderRatio: e.target.value as any })}
-                    className="w-full bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/60 rounded-xl px-2.5 py-1.5 text-xs text-slate-900 dark:text-slate-200 focus:outline-none focus:border-indigo-500"
-                  >
-                    <option value="60/40">60/40 Kalay-Kurşun (Tiffany Standart Parlak)</option>
-                    <option value="50/50">50/50 Kalay-Kurşun (Kurşunlu Vitray)</option>
-                    <option value="Lead-Free 99.3/0.7">Kurşunsuz (Lead-Free / Güvenli)</option>
-                  </select>
-                </div>
+                <CustomSelect<SolderRatio>
+                  label={t.consumables.solderRatio}
+                  value={solder.solderRatio}
+                  onChange={val => updateSolder({ solderRatio: val })}
+                  options={[
+                    { value: '60/40', label: '60/40 Kalay-Kurşun (Tiffany Standart Parlak)' },
+                    { value: '50/50', label: '50/50 Kalay-Kurşun (Kurşunlu Vitray)' },
+                    { value: 'Lead-Free 99.3/0.7', label: 'Kurşunsuz (Lead-Free / Güvenli)' },
+                  ]}
+                  size="sm"
+                />
 
                 <div className="grid grid-cols-3 gap-2">
                   <NumberInput
@@ -252,20 +245,17 @@ export const ConsumablesSection: React.FC<ConsumablesSectionProps> = ({ isExpand
                 prefix={activeCurrency.symbol}
               />
 
-              <div>
-                <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1 block">
-                  {t.consumables.patinaType}
-                </label>
-                <select
-                  value={chemicals.patinaType}
-                  onChange={e => updateChemicals({ patinaType: e.target.value as any })}
-                  className="w-full bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/60 rounded-xl px-2 py-1.5 text-xs text-slate-900 dark:text-slate-200 focus:outline-none focus:border-indigo-500"
-                >
-                  <option value="black">{t.consumables.patinaBlack}</option>
-                  <option value="copper">{t.consumables.patinaCopper}</option>
-                  <option value="none">{t.consumables.patinaNone}</option>
-                </select>
-              </div>
+              <CustomSelect<PatinaType>
+                label={t.consumables.patinaType}
+                value={chemicals.patinaType}
+                onChange={val => updateChemicals({ patinaType: val })}
+                options={[
+                  { value: 'black', label: t.consumables.patinaBlack },
+                  { value: 'copper', label: t.consumables.patinaCopper },
+                  { value: 'none', label: t.consumables.patinaNone },
+                ]}
+                size="sm"
+              />
 
               {chemicals.patinaType !== 'none' && (
                 <NumberInput

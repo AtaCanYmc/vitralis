@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Download, WifiOff, X, Smartphone } from 'lucide-react';
 import { useStudio } from '../../context/StudioContext';
 import { getTranslation } from '../../i18n';
+import type { BeforeInstallPromptEvent } from '../../types/studio';
 
 interface PWAInstallBannerProps {
-  deferredPrompt: any;
+  deferredPrompt: BeforeInstallPromptEvent | null;
   onInstall: () => void;
   isInstallable: boolean;
 }

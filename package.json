@@ -1,13 +1,15 @@
 {
   "name": "vitralis",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "test": "vitest run",
     "lint": "eslint .",
+    "typecheck": "tsc -b --noEmit",
+    "validate": "npm run lint && npm run typecheck && npm test && npm run build",
     "preview": "vite preview"
   },
   "dependencies": {

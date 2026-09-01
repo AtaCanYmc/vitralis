@@ -129,6 +129,18 @@ html.light .glass-input:focus-visible, html.light .glass-input:focus {
   cursor: not-allowed;
 }
 
+/* Hide number input spin arrows / steppers across all browsers */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield !important;
+  appearance: textfield !important;
+}
+
 /* Tactile Button Press */
 .tactile-btn {
   transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);

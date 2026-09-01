@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "package-name": "vitralis",
+      "changelog-path": "CHANGELOG.md",
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": true,
+      "draft": false,
+      "prerelease": false,
+      "changelog-sections": [
+        { "type": "feat", "section": "✨ Features & New Capabilities", "hidden": false },
+        { "type": "fix", "section": "🐛 Bug Fixes & Stability", "hidden": false },
+        { "type": "perf", "section": "⚡ Performance Improvements", "hidden": false },
+        { "type": "refactor", "section": "♻️ Code Refactoring", "hidden": false },
+        { "type": "docs", "section": "📚 Documentation", "hidden": false },
+        { "type": "style", "section": "💎 UI/UX & Design", "hidden": false },
+        { "type": "test", "section": "🧪 Automated Tests", "hidden": false },
+        { "type": "build", "section": "📦 Build & Dependencies", "hidden": false },
+        { "type": "ci", "section": "🔧 CI/CD & Workflows", "hidden": false },
+        { "type": "chore", "section": "🧹 Maintenance", "hidden": false }
+      ]
+    }
+  }
+}

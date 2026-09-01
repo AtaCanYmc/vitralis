@@ -53,7 +53,7 @@ export const ProjectManager: React.FC = () => {
       try {
         const json = JSON.parse(event.target?.result as string);
         importProjectData(json);
-      } catch (err) {
+      } catch {
         alert('Geçersiz Vitralis JSON yedek dosyası!');
       }
     };

@@ -53,9 +53,9 @@ export const TabNavigation: React.FC = () => {
   ];
 
   return (
-    <nav className="w-full bg-slate-950/70 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-800/60 py-2 px-4 sm:px-6">
+    <nav className="w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/60 py-2 px-4 sm:px-6 transition-colors duration-200">
       <div className="max-w-7xl mx-auto flex items-center justify-start sm:justify-center gap-1 overflow-x-auto no-scrollbar">
-        <div className="flex items-center gap-1 p-1 bg-slate-900/90 border border-slate-800/80 rounded-2xl shadow-inner">
+        <div className="flex items-center gap-1 p-1 bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800/80 rounded-2xl shadow-sm dark:shadow-inner">
           {navItems.map(item => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
@@ -66,16 +66,16 @@ export const TabNavigation: React.FC = () => {
                 onClick={() => setActiveTab(item.id)}
                 className={`tactile-btn flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap select-none transition-all ${
                   isActive
-                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-950/60 border border-indigo-500/50'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 border border-transparent'
+                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-950/30 border border-indigo-500/50'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-white dark:hover:bg-slate-800/50 border border-transparent'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-400'}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-500 dark:text-slate-400'}`} />
                 <span>{item.label}</span>
                 {item.badge && (
                   <span
                     className={`text-[9px] font-mono font-bold uppercase px-1 py-0.2 rounded ${
-                      isActive ? 'bg-indigo-900/80 text-indigo-200' : 'bg-slate-800 text-slate-400'
+                      isActive ? 'bg-indigo-900/80 text-indigo-200' : 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-400'
                     }`}
                   >
                     {item.badge}

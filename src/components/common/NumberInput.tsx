@@ -48,14 +48,14 @@ export const NumberInput: React.FC<NumberInputProps> = ({
   return (
     <div className={`flex flex-col ${className}`}>
       {label && (
-        <label className="text-[11px] font-semibold text-slate-300 mb-1 flex items-center justify-between">
+        <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1 flex items-center justify-between">
           <span className="truncate">{label}</span>
           {helpText && <span className="text-[10px] font-normal text-slate-400 font-mono">{helpText}</span>}
         </label>
       )}
       <div className="relative flex items-center rounded-xl overflow-hidden group">
         {prefix && (
-          <span className="absolute left-2.5 text-slate-400 text-xs font-mono font-medium pointer-events-none select-none">
+          <span className="absolute left-2.5 text-slate-500 dark:text-slate-400 text-xs font-mono font-medium pointer-events-none select-none">
             {prefix}
           </span>
         )}
@@ -68,12 +68,12 @@ export const NumberInput: React.FC<NumberInputProps> = ({
           onChange={handleChange}
           placeholder={placeholder || '0'}
           disabled={disabled}
-          className={`glass-input w-full py-1.5 rounded-xl font-mono text-xs font-medium ${
+          className={`glass-input w-full py-1.5 rounded-xl font-mono text-xs font-medium [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${
             prefix ? 'pl-7' : 'pl-2.5'
           } ${suffix ? 'pr-10' : 'pr-2.5'}`}
         />
         {suffix && (
-          <span className="absolute right-2.5 text-slate-400 text-[11px] font-mono font-medium pointer-events-none select-none">
+          <span className="absolute right-2.5 text-slate-500 dark:text-slate-400 text-[11px] font-mono font-medium pointer-events-none select-none">
             {suffix}
           </span>
         )}

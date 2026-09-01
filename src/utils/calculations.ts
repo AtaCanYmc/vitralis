@@ -13,7 +13,7 @@ import type {
  * Calculates the surface area in square meters for a single glass item.
  */
 export function calculateGlassItemAreaSqM(item: GlassItem): number {
-  let areaSqCm = 0;
+  let areaSqCm: number;
 
   if (item.shape === 'rect') {
     areaSqCm = (Number(item.widthCm) || 0) * (Number(item.heightCm) || 0);

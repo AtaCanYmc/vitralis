@@ -10,8 +10,11 @@ import { useProject } from '../../context/ProjectContext';
 import { useStudio } from '../../context/StudioContext';
 import { GlassCard } from '../common/GlassCard';
 import { NumberInput } from '../common/NumberInput';
+import { CustomSelect } from '../common/CustomSelect';
 import { formatCurrency, formatPercent } from '../../utils/formatters';
 import { getTranslation } from '../../i18n';
+
+import type { WasteCalculationMode } from '../../types/project';
 
 interface MarginWasteSectionProps {
   isExpanded?: boolean;
@@ -74,19 +77,18 @@ export const MarginWasteSection: React.FC<MarginWasteSectionProps> = ({ isExpand
               className="w-full accent-amber-500 cursor-pointer h-2 bg-slate-200 dark:bg-slate-800 rounded-lg"
             />
 
-            <div className="pt-2 border-t border-slate-200 dark:border-slate-800/60 flex items-center justify-between">
-              <div>
-                <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-400 block mb-1">
-                  {t.margin.wasteMode}
-                </label>
-                <select
+            <div className="pt-2 border-t border-slate-200 dark:border-slate-800/60 flex items-center justify-between gap-3">
+              <div className="w-48">
+                <CustomSelect<WasteCalculationMode>
+                  label={t.margin.wasteMode}
                   value={marginRisk.wasteCalculationMode}
-                  onChange={e => updateMarginRisk({ wasteCalculationMode: e.target.value as any })}
-                  className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/60 rounded-xl px-2 py-1 text-xs text-slate-900 dark:text-slate-200 focus:outline-none focus:border-amber-500"
-                >
-                  <option value="glass_and_consumables">{t.margin.modeMaterialsOnly}</option>
-                  <option value="entire_base_cost">{t.margin.modeEntireCost}</option>
-                </select>
+                  onChange={val => updateMarginRisk({ wasteCalculationMode: val })}
+                  options={[
+                    { value: 'glass_and_consumables', label: t.margin.modeMaterialsOnly },
+                    { value: 'entire_base_cost', label: t.margin.modeEntireCost },
+                  ]}
+                  size="xs"
+                />
               </div>
 
               <div className="text-right">

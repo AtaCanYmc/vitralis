@@ -15,12 +15,14 @@ import {
 import { useStudio } from '../../context/StudioContext';
 import { useProject } from '../../context/ProjectContext';
 import { CURRENCIES } from '../../constants/defaults';
-import type { CurrencyCode } from '../../types/studio';
+import type { CurrencyCode, BeforeInstallPromptEvent } from '../../types/studio';
 import { getTranslation } from '../../i18n';
+
+import { CustomSelect } from './CustomSelect';
 
 interface HeaderProps {
   onOpenTools: () => void;
-  deferredPrompt: any;
+  deferredPrompt: BeforeInstallPromptEvent | null;
   onInstallPwa: () => void;
   isInstallable: boolean;
 }
@@ -100,22 +102,18 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
 
             {/* Currency Selector */}
-            <div className="relative">
-              <select
+            <div className="w-24">
+              <CustomSelect<CurrencyCode>
                 value={defaults.currency}
-                onChange={e => setCurrency(e.target.value as CurrencyCode)}
-                className="appearance-none bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-xs font-mono font-semibold rounded-xl pl-2.5 pr-6 py-1.5 cursor-pointer focus:outline-none focus:border-indigo-500 transition-all"
-                title={t.studio.currency}
-              >
-                {Object.values(CURRENCIES).map(curr => (
-                  <option key={curr.code} value={curr.code} className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans">
-                    {curr.symbol} {curr.code}
-                  </option>
-                ))}
-              </select>
-              <div className="absolute right-2 top-2 pointer-events-none text-slate-400 dark:text-slate-500 text-[9px]">
-                ▼
-              </div>
+                onChange={val => setCurrency(val)}
+                options={Object.values(CURRENCIES).map(curr => ({
+                  value: curr.code,
+                  label: `${curr.symbol} ${curr.code}`,
+                  sublabel: curr.name,
+                }))}
+                size="sm"
+                align="right"
+              />
             </div>
 
             {/* Language Switcher */}

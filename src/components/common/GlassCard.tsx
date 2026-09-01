@@ -2,7 +2,7 @@
  * states: default · hover · focus · active
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 interface GlassCardProps {
@@ -35,12 +35,6 @@ export const GlassCard: React.FC<GlassCardProps> = ({
   glowColor = 'indigo',
 }) => {
   const [internalExpanded, setInternalExpanded] = useState(defaultExpanded);
-
-  useEffect(() => {
-    if (controlledExpanded !== undefined) {
-      setInternalExpanded(controlledExpanded);
-    }
-  }, [controlledExpanded]);
 
   const isCurrentExpanded = controlledExpanded !== undefined ? controlledExpanded : internalExpanded;
 

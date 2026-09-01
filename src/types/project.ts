@@ -31,6 +31,10 @@ export interface CustomConsumable {
   unit: string; // 'pcs', 'meters', 'grams', 'set'
 }
 
+export type SolderRatio = '60/40' | '50/50' | 'Lead-Free 99.3/0.7';
+export type PatinaType = 'black' | 'copper' | 'none';
+export type WasteCalculationMode = 'glass_and_consumables' | 'entire_base_cost';
+
 export interface ConsumablesConfig {
   // Copper Foil
   foil: {
@@ -44,7 +48,7 @@ export interface ConsumablesConfig {
   // Solder (60/40, 50/50, Lead-free)
   solder: {
     enabled: boolean;
-    solderRatio: '60/40' | '50/50' | 'Lead-Free 99.3/0.7';
+    solderRatio: SolderRatio;
     weightGrams: number;
     spoolPrice: number;
     spoolWeightGrams: number; // default: 500g or 1000g
@@ -52,7 +56,7 @@ export interface ConsumablesConfig {
   // Chemicals
   chemicals: {
     fluxCost: number; // Gel or liquid flux cost share
-    patinaType: 'black' | 'copper' | 'none';
+    patinaType: PatinaType;
     patinaCost: number;
     finishingPolishCost: number; // Carnauba wax / polish
     cleaningSolventCost: number; // Alcohol / detergent / neutralizer

@@ -1,5 +1,5 @@
 import type { VitralisProject } from '../types/project';
-import { INITIAL_EQUIPMENT_LIST } from './defaults';
+import { INITIAL_EQUIPMENT_LIST, EMPTY_COST_BREAKDOWN } from './defaults';
 
 export interface ProjectTemplate {
   id: string;
@@ -154,7 +154,7 @@ export const PROJECT_TEMPLATES: ProjectTemplate[] = [
         vatTaxPercentage: 20,
         discountPercentage: 0,
       },
-      breakdown: {} as any,
+      breakdown: EMPTY_COST_BREAKDOWN,
     },
   },
   {
@@ -297,7 +297,7 @@ export const PROJECT_TEMPLATES: ProjectTemplate[] = [
         vatTaxPercentage: 20,
         discountPercentage: 0,
       },
-      breakdown: {} as any,
+      breakdown: EMPTY_COST_BREAKDOWN,
     },
   },
   {
@@ -440,7 +440,7 @@ export const PROJECT_TEMPLATES: ProjectTemplate[] = [
         vatTaxPercentage: 20,
         discountPercentage: 0,
       },
-      breakdown: {} as any,
+      breakdown: EMPTY_COST_BREAKDOWN,
     },
   },
   {
@@ -566,7 +566,7 @@ export const PROJECT_TEMPLATES: ProjectTemplate[] = [
         vatTaxPercentage: 20,
         discountPercentage: 0,
       },
-      breakdown: {} as any,
+      breakdown: EMPTY_COST_BREAKDOWN,
     },
   },
 ];
