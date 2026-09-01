@@ -1,14 +1,14 @@
-<div align="center">
+<div style="text-align: center;">
     <h1>Vitralis</h1>
     <p>Stained Glass & Tiffany Studio Cost Calculator</p>
     <img src="public/pwa-512x512.svg" alt="Vitralis Logo" width="120" height="120" />
 </div>
 
-<div align="center">
+<div style="text-align: center;">
   <strong>Comprehensive Cost Accounting, Quotation Generator, and Progressive Web App (PWA) for Stained Glass Artisans and Tiffany Technique Workshops.</strong>
 </div>
 
-<div align="center">
+<div style="text-align: center;">
   <img src="https://img.shields.io/badge/React-19.2-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React 19" />
   <img src="https://img.shields.io/badge/TypeScript-6.0-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Vite-8.2-646CFF?style=flat-square&logo=vite&logoColor=white" alt="Vite 8" />
@@ -22,7 +22,7 @@
 
 ---
 
-## 📑 Table of Contents / İçindekiler
+## 📑 Table of Contents
 
 - [💎 Overview & Vision](#-overview--vision)
 - [✨ Key Features](#-key-features)
@@ -31,8 +31,8 @@
     - [2. Cost Calculation Waterfall Pipeline](#2-cost-calculation-waterfall-pipeline)
     - [3. Application State & Context Flow](#3-application-state--context-flow)
 - [📐 Mathematical Formulation & Cost Logic](#-mathematical-formulation--cost-logic)
-- [💡 Artisan Rules of Thumb (Ustalık Formülleri)](#-artisan-rules-of-thumb-ustalık-formülleri)
-- [🛠️ Tech Stack & Libraries](#️-tech-stack--libraries)
+- [💡 Artisan Rules of Thumb](#-artisan-rules-of-thumb)
+- [🛠 Tech Stack & Libraries](#-tech-stack--libraries)
 - [📂 Project Architecture](#-project-architecture)
 - [🚀 Getting Started & Local Development](#-getting-started--local-development)
 - [🧪 Testing & Quality Assurance](#-testing--quality-assurance)
@@ -42,7 +42,7 @@
     - [3. Dependabot Dependency Management](#3-dependabot-dependency-management)
     - [4. Automated Releases with Release Please](#4-automated-releases-with-release-please)
 - [📱 Progressive Web App (PWA) Capabilities](#-progressive-web-app-pwa-capabilities)
-- [🤝 Contributing & Conventional Commits](#-contributing--conventional-commits)
+- [🤝 Contributing & Community](#-contributing--community)
 - [📜 License](#-license)
 
 ---
@@ -134,29 +134,29 @@ graph TB
 
 ```mermaid
 flowchart TD
-    G[1. Total Glass Cost<br/>Area × Unit Price] --> RawBase[Raw Base Cost]
-C[2. Total Consumables<br/>Foil + Solder + Flux + Patina + Came] --> RawBase
-L[3. Artisan Labor Cost<br/>8 Stages × Hourly Rate] --> RawBase
-E[4. Tool Depreciation<br/>Hourly Wear Rate × Usage] --> RawBase
-P[5. Electricity Cost<br/>Total kWh × Energy Rate] --> RawBase
+    G["1. Total Glass Cost<br/>Area × Unit Price"] --> RawBase["Raw Base Cost"]
+    C["2. Total Consumables<br/>Foil + Solder + Flux + Patina + Came"] --> RawBase
+    L["3. Artisan Labor Cost<br/>8 Stages × Hourly Rate"] --> RawBase
+    E["4. Tool Depreciation<br/>Hourly Wear Rate × Usage"] --> RawBase
+    P["5. Electricity Cost<br/>Total kWh × Energy Rate"] --> RawBase
 
-RawBase --> WasteCalc{Waste Mode}
-WasteCalc -->|Materials Only|W1[Waste Amount = Materials × Waste%]
-WasteCalc -->|Entire Base Cost| W2[Waste Amount = RawBase × Waste%]
+    RawBase --> WasteCalc{"Waste Mode"}
+    WasteCalc -->|Materials Only| W1["Waste Amount = Materials × Waste%"]
+    WasteCalc -->|Entire Base Cost| W2["Waste Amount = RawBase × Waste%"]
 
-W1 --> CostWaste[Cost with Waste Risk]
-W2 --> CostWaste
+    W1 --> CostWaste["Cost with Waste Risk"]
+    W2 --> CostWaste
 
-CostWaste --> Profit[+ Target Profit Margin %]
-Profit --> Subtotal[Subtotal Selling Price]
+    CostWaste --> Profit["+ Target Profit Margin %"]
+    Profit --> Subtotal["Subtotal Selling Price"]
 
-Subtotal --> Disc[- Special Client Discount %]
-Disc --> NetPrice[Net Price After Discount]
+    Subtotal --> Disc["- Special Client Discount %"]
+    Disc --> NetPrice["Net Price After Discount"]
 
-NetPrice --> Tax[+ VAT / Sales Tax %]
-Tax --> Final[🎯 Final Selling Price]
+    NetPrice --> Tax["+ VAT / Sales Tax %"]
+    Tax --> Final["🎯 Final Selling Price"]
 
-Final --> Analytics[Studio Analytics: Hourly Yield, Piece Cost, Material Ratio]
+    Final --> Analytics["Studio Analytics: Hourly Yield, Piece Cost, Material Ratio"]
 ```
 
 ---
@@ -179,7 +179,7 @@ sequenceDiagram
     Engine -->> PCtx: Returns updated immutable CostBreakdown
     PCtx ->> LS: Auto-persists active project state
     PCtx -->> Comp: Re-renders reactive QuickCostSummary & Charts
-    Artisan ->> Header: Clicks "Teklif Çıktısı" (Print Quote)
+    Artisan ->> Header: Clicks "Print Quotation"
     Header ->> Comp: Displays PrintableQuote & triggers Window.print()
 ```
 
@@ -215,7 +215,7 @@ $$\text{Effective Hourly Yield} = \frac{\text{Net Profit Amount} + \text{Total L
 
 ---
 
-## 💡 Artisan Rules of Thumb (Ustalık Formülleri)
+## 💡 Artisan Rules of Thumb
 
 Vitralis incorporates real-world workshop benchmarks collected from experienced stained glass artists:
 
@@ -231,7 +231,7 @@ Vitralis incorporates real-world workshop benchmarks collected from experienced 
 
 ---
 
-## 🛠️ Tech Stack & Libraries
+## 🛠 Tech Stack & Libraries
 
 * **Core Framework:** React 19.2 (Functional Components, Hooks, Context API)
 * **Type System:** TypeScript 6.0 (Strict mode, full interface coverage)
@@ -433,6 +433,6 @@ This project is licensed under the **[MIT License](LICENSE)** — feel free to u
 
 ---
 
-<div align="center">
+<div style="text-align: center;">
   Crafted with precision for stained glass artisans & studios worldwide. 🪟✨
 </div>

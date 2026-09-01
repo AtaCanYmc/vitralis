@@ -21,14 +21,14 @@ $$\text{Area}_{\text{m}^2} = \left(\frac{\pi \times (D_{\text{cm}} / 2)^2}{10{,}
 
 ## 2. Consumables (Solder, Copper Foil, Patina, Chemicals)
 
-### Copper Foil (Bakır Folyo)
+### Copper Foil
 $$\text{Cost}_{\text{foil}} = \left(\frac{\text{Length}_{\text{m}}}{\text{RollLength}_{\text{m}}}\right) \times \text{RollPrice}$$
 
-### Stained Glass Solder (Vitray Lehimi: 60/40 & 50/50)
+### Stained Glass Solder (60/40 & 50/50 Alloys)
 * **Average Solder Consumption per Line**: $18\text{g} - 22\text{g} \text{ per meter of solder seam}$.
 $$\text{Cost}_{\text{solder}} = \left(\frac{\text{Weight}_{\text{g}}}{500\text{g}}\right) \times \text{BarPrice}_{500\text{g}}$$
 
-### Patina & Flux (Patina & Lehim Sıvısı)
+### Patina & Liquid Flux
 $$\text{Cost}_{\text{liquid}} = \left(\frac{\text{Volume}_{\text{ml}}}{\text{BottleVolume}_{\text{ml}}}\right) \times \text{BottlePrice}$$
 
 ---
@@ -39,18 +39,18 @@ Labor cost is calculated based on active studio hourly rate and recorded stage d
 $$\text{Total Labor Cost} = \text{Hourly Rate} \times \sum_{i=1}^{8} \text{Stage Hours}_i$$
 
 ### 8 Dedicated Artisan Stages:
-1. **Design & Pattern Drafting (Tasarım & Çizim / Şablon)**
-2. **Glass Cutting (Cam Kesimi)**
-3. **Grinding & Edge Truing (Rodaj / Taşlama)**
-4. **Copper Foiling (Bakır Folyolama)**
-5. **Soldering (Lehimleme: Ön/Arka/Kenar)**
-6. **Cleaning & Neutralization (Yıkama & Nötralizasyon)**
-7. **Patina & Polishing (Patina & Parlatma/Vaks)**
-8. **Framing, Reinforcement & Assembly (Montaj / Çerçeveleme)**
+1. **Design & Pattern Drafting (Cartoon / Templates)**
+2. **Glass Scoring & Cutting**
+3. **Grinding & Edge Truing**
+4. **Copper Foiling**
+5. **Soldering & Beading (Front / Back / Edges)**
+6. **Cleaning & Neutralization**
+7. **Chemical Patina & Wax Polishing**
+8. **Framing, Reinforcement & Assembly**
 
 ---
 
-## 4. Equipment Depreciation (Amortisman)
+## 4. Equipment Depreciation
 
 For each studio machine (Glass Grinder, Soldering Iron, Ring Saw, Fume Extractor, Polishing Wheel):
 $$\text{Hourly Depreciation} = \frac{\text{Purchase Price}}{\text{Lifespan Hours}}$$
@@ -58,7 +58,7 @@ $$\text{Project Equipment Cost} = \sum (\text{Hourly Depreciation}_k \times \tex
 
 ---
 
-## 5. Studio Electricity (Enerji Tüketimi)
+## 5. Studio Electricity Consumption
 
 $$\text{Electricity Cost} = \left(\frac{\text{Power}_{\text{Watts}} \times \text{Hours}}{1{,}000}\right) \times \text{Unit Rate}_{\text{kWh}}$$
 
@@ -84,7 +84,7 @@ $$\text{Electricity Cost} = \left(\frac{\text{Power}_{\text{Watts}} \times \text
 
 ---
 
-## 7. Studio Hourly Yield Benchmark (Saatlik Getiri)
+## 7. Studio Hourly Yield Benchmark
 
 The real financial return per artisan hour after subtracting raw materials, energy, and wear:
 $$\text{Effective Hourly Yield} = \frac{\text{Final Price} - (\text{Glass} + \text{Consumables} + \text{Overhead} + \text{Waste})}{\text{Total Labor Hours}}$$
