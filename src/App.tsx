@@ -111,7 +111,7 @@ const MainContent: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-indigo-500 selection:text-white transition-colors duration-300">
+    <div className="min-h-screen bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col selection:bg-indigo-500 selection:text-white transition-colors duration-200">
       
       {/* App Header */}
       <Header
@@ -132,7 +132,7 @@ const MainContent: React.FC = () => {
             <QuickCostSummary />
 
             {/* Accordion Quick Control Toolbar */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-2.5 rounded-2xl bg-slate-900/60 border border-slate-800">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-2.5 rounded-2xl bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none transition-colors">
               
               {/* Quick Jump / Toggle Pills */}
               <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
@@ -144,33 +144,33 @@ const MainContent: React.FC = () => {
                       onClick={() => toggleSection(item.key)}
                       className={`flex items-center gap-1 px-2.5 py-1 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                         isOpen
-                          ? 'bg-indigo-600/30 text-indigo-300 border border-indigo-500/40'
-                          : 'bg-slate-950/60 text-slate-400 hover:text-slate-200 border border-slate-800'
+                          ? 'bg-indigo-600/15 dark:bg-indigo-600/30 text-indigo-700 dark:text-indigo-300 border border-indigo-500/40'
+                          : 'bg-slate-100 dark:bg-slate-950/60 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 border border-slate-200 dark:border-slate-800'
                       }`}
                       title={isOpen ? 'Bölümü Daralt' : 'Bölümü Genişlet'}
                     >
                       {item.icon}
                       <span>{item.label}</span>
-                      <span className={`w-1.5 h-1.5 rounded-full ${isOpen ? 'bg-indigo-400' : 'bg-slate-600'}`} />
+                      <span className={`w-1.5 h-1.5 rounded-full ${isOpen ? 'bg-indigo-500' : 'bg-slate-400 dark:bg-slate-600'}`} />
                     </button>
                   );
                 })}
               </div>
 
               {/* Expand / Collapse All Buttons */}
-              <div className="flex items-center justify-end gap-2 shrink-0 border-t sm:border-t-0 border-slate-800 pt-2 sm:pt-0">
+              <div className="flex items-center justify-end gap-2 shrink-0 border-t sm:border-t-0 border-slate-200 dark:border-slate-800 pt-2 sm:pt-0">
                 <button
                   onClick={allExpanded ? collapseAll : expandAll}
-                  className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition-all"
+                  className="tactile-btn flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold border border-slate-200 dark:border-slate-700 transition-all"
                 >
                   {allExpanded ? (
                     <>
-                      <ChevronUp className="w-3.5 h-3.5 text-indigo-400" />
+                      <ChevronUp className="w-3.5 h-3.5 text-indigo-500" />
                       <span>Tümünü Daralt</span>
                     </>
                   ) : (
                     <>
-                      <ChevronDown className="w-3.5 h-3.5 text-indigo-400" />
+                      <ChevronDown className="w-3.5 h-3.5 text-indigo-500" />
                       <span>Tümünü Genişlet</span>
                     </>
                   )}
@@ -249,13 +249,13 @@ const MainContent: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="no-print mt-auto border-t border-slate-900 bg-slate-950/80 py-6 text-center text-xs text-slate-500">
+      <footer className="no-print mt-auto border-t border-slate-200 dark:border-slate-900 bg-white/80 dark:bg-slate-950/80 py-6 text-center text-xs text-slate-500 dark:text-slate-400 transition-colors">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p>© {new Date().getFullYear()} Vitralis - Cam Vitray & Tiffany Atölye Maliyet Sistemi</p>
           <p className="flex items-center gap-1">
             <span>Designed for Stained Glass Artisans</span>
             <span>•</span>
-            <span className="text-indigo-400 font-semibold">PWA Offline Enabled</span>
+            <span className="text-indigo-600 dark:text-indigo-400 font-semibold">PWA Offline Enabled</span>
           </p>
         </div>
       </footer>

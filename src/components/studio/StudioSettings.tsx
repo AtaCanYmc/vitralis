@@ -36,102 +36,102 @@ export const StudioSettings: React.FC = () => {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="text-xs font-semibold text-slate-300 mb-1 block">{t.studio.studioName}</label>
+            <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">{t.studio.studioName}</label>
             <input
               type="text"
               value={profile.studioName}
               onChange={e => updateProfile({ studioName: e.target.value })}
-              className="w-full bg-slate-950/60 border border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500"
+              className="w-full bg-white dark:bg-slate-950/60 border border-slate-200 dark:border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-indigo-500 font-medium"
             />
           </div>
 
           <div>
-            <label className="text-xs font-semibold text-slate-300 mb-1 block">{t.studio.artisanName}</label>
+            <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">{t.studio.artisanName}</label>
             <input
               type="text"
               value={profile.artisanName}
               onChange={e => updateProfile({ artisanName: e.target.value })}
-              className="w-full bg-slate-950/60 border border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500"
+              className="w-full bg-white dark:bg-slate-950/60 border border-slate-200 dark:border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-indigo-500 font-medium"
             />
           </div>
 
           <div>
-            <label className="text-xs font-semibold text-slate-300 mb-1 block">{t.studio.phone}</label>
+            <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">{t.studio.phone}</label>
             <input
               type="text"
               value={profile.phone}
               onChange={e => updateProfile({ phone: e.target.value })}
-              className="w-full bg-slate-950/60 border border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500"
+              className="w-full bg-white dark:bg-slate-950/60 border border-slate-200 dark:border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-indigo-500 font-medium"
             />
           </div>
 
           <div>
-            <label className="text-xs font-semibold text-slate-300 mb-1 block">{t.studio.email}</label>
+            <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">{t.studio.email}</label>
             <input
               type="email"
               value={profile.email}
               onChange={e => updateProfile({ email: e.target.value })}
-              className="w-full bg-slate-950/60 border border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500"
+              className="w-full bg-white dark:bg-slate-950/60 border border-slate-200 dark:border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-indigo-500 font-medium"
             />
           </div>
 
           <div>
-            <label className="text-xs font-semibold text-slate-300 mb-1 block">{t.studio.website}</label>
+            <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">{t.studio.website}</label>
             <input
               type="text"
               value={profile.website}
               onChange={e => updateProfile({ website: e.target.value })}
-              className="w-full bg-slate-950/60 border border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500"
+              className="w-full bg-white dark:bg-slate-950/60 border border-slate-200 dark:border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-indigo-500 font-medium"
             />
           </div>
 
           <div>
-            <label className="text-xs font-semibold text-slate-300 mb-1 block">{t.studio.taxNumber}</label>
+            <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">{t.studio.taxNumber}</label>
             <input
               type="text"
               value={profile.taxNumber || ''}
               onChange={e => updateProfile({ taxNumber: e.target.value })}
-              className="w-full bg-slate-950/60 border border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500"
+              className="w-full bg-white dark:bg-slate-950/60 border border-slate-200 dark:border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-indigo-500 font-medium"
             />
           </div>
 
           <div className="md:col-span-2">
-            <label className="text-xs font-semibold text-slate-300 mb-1 block">{t.studio.address}</label>
+            <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">{t.studio.address}</label>
             <input
               type="text"
               value={profile.address}
               onChange={e => updateProfile({ address: e.target.value })}
-              className="w-full bg-slate-950/60 border border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500"
+              className="w-full bg-white dark:bg-slate-950/60 border border-slate-200 dark:border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-indigo-500 font-medium"
             />
           </div>
 
           <div className="md:col-span-2">
-            <label className="text-xs font-semibold text-slate-300 mb-1 block">{t.studio.quoteNotes}</label>
+            <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">{t.studio.quoteNotes}</label>
             <textarea
               rows={2}
               value={profile.quoteHeaderNotes}
               onChange={e => updateProfile({ quoteHeaderNotes: e.target.value })}
-              className="w-full bg-slate-950/60 border border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500"
+              className="w-full bg-white dark:bg-slate-950/60 border border-slate-200 dark:border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-indigo-500 font-medium"
             />
           </div>
 
           <div className="md:col-span-2">
-            <label className="text-xs font-semibold text-slate-300 mb-1 block">{t.studio.termsConditions}</label>
+            <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">{t.studio.termsConditions}</label>
             <textarea
               rows={3}
               value={profile.quoteTermsConditions}
               onChange={e => updateProfile({ quoteTermsConditions: e.target.value })}
-              className="w-full bg-slate-950/60 border border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500"
+              className="w-full bg-white dark:bg-slate-950/60 border border-slate-200 dark:border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-indigo-500 font-medium"
             />
           </div>
 
           <div className="md:col-span-2">
-            <label className="text-xs font-semibold text-slate-300 mb-1 block">{t.studio.careInstructions}</label>
+            <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">{t.studio.careInstructions}</label>
             <textarea
               rows={3}
               value={profile.careInstructions}
               onChange={e => updateProfile({ careInstructions: e.target.value })}
-              className="w-full bg-slate-950/60 border border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500"
+              className="w-full bg-white dark:bg-slate-950/60 border border-slate-200 dark:border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-indigo-500 font-medium"
             />
           </div>
         </div>
@@ -147,14 +147,14 @@ export const StudioSettings: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           
           <div>
-            <label className="text-xs font-semibold text-slate-300 mb-1 block">{t.studio.currency}</label>
+            <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">{t.studio.currency}</label>
             <select
               value={defaults.currency}
               onChange={e => setCurrency(e.target.value as CurrencyCode)}
-              className="w-full bg-slate-950/60 border border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500 font-semibold"
+              className="w-full bg-white dark:bg-slate-950/60 border border-slate-200 dark:border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-indigo-500 font-semibold"
             >
               {Object.values(CURRENCIES).map(c => (
-                <option key={c.code} value={c.code}>
+                <option key={c.code} value={c.code} className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">
                   {c.name}
                 </option>
               ))}
@@ -228,7 +228,7 @@ export const StudioSettings: React.FC = () => {
           />
 
           <NumberInput
-            label="Varsayılan Çinko Profil Fiyatı (Metre)"
+            label="Varsayılan Çinko Profil (Metre)"
             value={defaults.defaultZincCamePricePerMeter}
             onChange={val => updateDefaults({ defaultZincCamePricePerMeter: val })}
             min={0}
@@ -240,14 +240,14 @@ export const StudioSettings: React.FC = () => {
       </GlassCard>
 
       {/* Save & Reset Actions */}
-      <div className="flex flex-wrap items-center justify-between gap-3 p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
+      <div className="flex flex-wrap items-center justify-between gap-3 p-4 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
         <button
           onClick={() => {
             if (confirm('Tüm atölye ayarları varsayılan fabrika değerlerine dönecektir. Onaylıyor musunuz?')) {
               resetToFactoryDefaults();
             }
           }}
-          className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-800 hover:bg-rose-950/40 text-slate-400 hover:text-rose-300 border border-slate-700 text-xs font-semibold transition-all"
+          className="tactile-btn flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-rose-100 dark:hover:bg-rose-950/40 text-slate-700 dark:text-slate-400 hover:text-rose-700 dark:hover:text-rose-300 border border-slate-200 dark:border-slate-700 text-xs font-semibold transition-all"
         >
           <RotateCcw className="w-3.5 h-3.5" />
           <span>{t.studio.resetDefaults}</span>
@@ -255,10 +255,10 @@ export const StudioSettings: React.FC = () => {
 
         <button
           onClick={handleSave}
-          className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold transition-all shadow-md ${
+          className={`tactile-btn flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold transition-all shadow-md ${
             savedSuccess
               ? 'bg-emerald-500 text-white shadow-emerald-950/50'
-              : 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-indigo-950/50 active:scale-95'
+              : 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-indigo-950/50'
           }`}
         >
           {savedSuccess ? (

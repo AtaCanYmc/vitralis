@@ -36,10 +36,10 @@ export const MarginWasteSection: React.FC<MarginWasteSectionProps> = ({ isExpand
       onToggle={onToggle}
       badge={
         <div className="flex items-center gap-1.5 flex-wrap">
-          <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-semibold">
+          <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/15 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 text-xs font-semibold">
             +{formatPercent(marginRisk.targetProfitMarginPercentage)} Kar
           </span>
-          <span className="px-2.5 py-0.5 rounded-full bg-slate-800 text-emerald-300 border border-slate-700 text-xs font-mono font-bold">
+          <span className="px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-emerald-300 border border-slate-200 dark:border-slate-700 text-xs font-mono font-bold">
             +{formatCurrency(b.profitAmount, activeCurrency)}
           </span>
         </div>
@@ -51,18 +51,18 @@ export const MarginWasteSection: React.FC<MarginWasteSectionProps> = ({ isExpand
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           
           {/* 1. Waste & Glass Breakage Margin */}
-          <div className="rounded-2xl bg-slate-950/50 border border-slate-800 p-4 space-y-3">
+          <div className="rounded-2xl bg-slate-50/80 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 p-4 space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <AlertTriangle className="w-4 h-4 text-amber-400" />
-                <h4 className="font-bold text-sm text-slate-100">{t.margin.wasteRiskTitle}</h4>
+                <AlertTriangle className="w-4 h-4 text-amber-500" />
+                <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-slate-100">{t.margin.wasteRiskTitle}</h4>
               </div>
-              <span className="text-sm font-bold text-amber-400 font-mono">
+              <span className="text-sm font-bold text-amber-600 dark:text-amber-400 font-mono">
                 {formatPercent(marginRisk.wasteRiskPercentage)}
               </span>
             </div>
 
-            <p className="text-xs text-slate-400">{t.margin.wasteRiskHelp}</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">{t.margin.wasteRiskHelp}</p>
 
             <input
               type="range"
@@ -71,18 +71,18 @@ export const MarginWasteSection: React.FC<MarginWasteSectionProps> = ({ isExpand
               step="1"
               value={marginRisk.wasteRiskPercentage}
               onChange={e => updateMarginRisk({ wasteRiskPercentage: parseFloat(e.target.value) || 0 })}
-              className="w-full accent-amber-500 cursor-pointer h-2 bg-slate-800 rounded-lg"
+              className="w-full accent-amber-500 cursor-pointer h-2 bg-slate-200 dark:bg-slate-800 rounded-lg"
             />
 
-            <div className="pt-2 border-t border-slate-800/60 flex items-center justify-between">
+            <div className="pt-2 border-t border-slate-200 dark:border-slate-800/60 flex items-center justify-between">
               <div>
-                <label className="text-[11px] font-semibold text-slate-400 block mb-1">
+                <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-400 block mb-1">
                   {t.margin.wasteMode}
                 </label>
                 <select
                   value={marginRisk.wasteCalculationMode}
                   onChange={e => updateMarginRisk({ wasteCalculationMode: e.target.value as any })}
-                  className="bg-slate-900 border border-slate-700/60 rounded-xl px-2 py-1 text-xs text-slate-200 focus:outline-none focus:border-amber-500"
+                  className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/60 rounded-xl px-2 py-1 text-xs text-slate-900 dark:text-slate-200 focus:outline-none focus:border-amber-500"
                 >
                   <option value="glass_and_consumables">{t.margin.modeMaterialsOnly}</option>
                   <option value="entire_base_cost">{t.margin.modeEntireCost}</option>
@@ -90,8 +90,8 @@ export const MarginWasteSection: React.FC<MarginWasteSectionProps> = ({ isExpand
               </div>
 
               <div className="text-right">
-                <span className="text-[10px] text-slate-400 block">{t.margin.wasteAmount}</span>
-                <span className="text-sm font-bold text-amber-400 font-mono">
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 block">{t.margin.wasteAmount}</span>
+                <span className="text-sm font-bold text-amber-600 dark:text-amber-400 font-mono">
                   +{formatCurrency(b.wasteAmount, activeCurrency)}
                 </span>
               </div>
@@ -99,18 +99,18 @@ export const MarginWasteSection: React.FC<MarginWasteSectionProps> = ({ isExpand
           </div>
 
           {/* 2. Target Profit Margin */}
-          <div className="rounded-2xl bg-slate-950/50 border border-slate-800 p-4 space-y-3">
+          <div className="rounded-2xl bg-slate-50/80 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 p-4 space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Coins className="w-4 h-4 text-emerald-400" />
-                <h4 className="font-bold text-sm text-slate-100">{t.margin.profitMarginTitle}</h4>
+                <Coins className="w-4 h-4 text-emerald-500" />
+                <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-slate-100">{t.margin.profitMarginTitle}</h4>
               </div>
-              <span className="text-sm font-bold text-emerald-400 font-mono">
+              <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400 font-mono">
                 {formatPercent(marginRisk.targetProfitMarginPercentage)}
               </span>
             </div>
 
-            <p className="text-xs text-slate-400">{t.margin.profitMarginHelp}</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">{t.margin.profitMarginHelp}</p>
 
             <input
               type="range"
@@ -119,20 +119,20 @@ export const MarginWasteSection: React.FC<MarginWasteSectionProps> = ({ isExpand
               step="5"
               value={marginRisk.targetProfitMarginPercentage}
               onChange={e => updateMarginRisk({ targetProfitMarginPercentage: parseFloat(e.target.value) || 0 })}
-              className="w-full accent-emerald-500 cursor-pointer h-2 bg-slate-800 rounded-lg"
+              className="w-full accent-emerald-500 cursor-pointer h-2 bg-slate-200 dark:bg-slate-800 rounded-lg"
             />
 
-            <div className="pt-2 border-t border-slate-800/60 flex items-center justify-between">
+            <div className="pt-2 border-t border-slate-200 dark:border-slate-800/60 flex items-center justify-between">
               <div className="flex items-center gap-1.5">
                 {[30, 45, 60, 80].map(pct => (
                   <button
                     key={pct}
                     type="button"
                     onClick={() => updateMarginRisk({ targetProfitMarginPercentage: pct })}
-                    className={`px-2 py-1 rounded-lg text-[10px] font-bold transition-all ${
+                    className={`tactile-btn px-2 py-1 rounded-lg text-[10px] font-bold font-mono transition-all ${
                       marginRisk.targetProfitMarginPercentage === pct
-                        ? 'bg-emerald-600 text-white'
-                        : 'bg-slate-900 text-slate-400 hover:text-slate-200'
+                        ? 'bg-emerald-600 text-white shadow-sm'
+                        : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 border border-slate-200 dark:border-slate-800'
                     }`}
                   >
                     %{pct}
@@ -141,8 +141,8 @@ export const MarginWasteSection: React.FC<MarginWasteSectionProps> = ({ isExpand
               </div>
 
               <div className="text-right">
-                <span className="text-[10px] text-slate-400 block">{t.margin.profitAmount}</span>
-                <span className="text-sm font-bold text-emerald-400 font-mono">
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 block">{t.margin.profitAmount}</span>
+                <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400 font-mono">
                   +{formatCurrency(b.profitAmount, activeCurrency)}
                 </span>
               </div>
@@ -153,12 +153,12 @@ export const MarginWasteSection: React.FC<MarginWasteSectionProps> = ({ isExpand
 
         {/* Row 2: Discount & VAT / Tax */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="rounded-2xl bg-slate-950/50 border border-slate-800 p-3.5 flex items-center justify-between">
+          <div className="rounded-2xl bg-slate-50/80 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 p-3.5 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Gift className="w-4 h-4 text-purple-400" />
+              <Gift className="w-4 h-4 text-purple-500" />
               <div>
-                <span className="text-xs font-bold text-slate-200 block">{t.margin.discountTitle}</span>
-                <span className="text-[10px] text-slate-400">Özel müşteri / atölye indirimi</span>
+                <span className="text-xs font-bold text-slate-900 dark:text-slate-200 block">{t.margin.discountTitle}</span>
+                <span className="text-[10px] text-slate-500 dark:text-slate-400">Özel müşteri / atölye indirimi</span>
               </div>
             </div>
             <div className="w-24">
@@ -173,12 +173,12 @@ export const MarginWasteSection: React.FC<MarginWasteSectionProps> = ({ isExpand
             </div>
           </div>
 
-          <div className="rounded-2xl bg-slate-950/50 border border-slate-800 p-3.5 flex items-center justify-between">
+          <div className="rounded-2xl bg-slate-50/80 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 p-3.5 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Receipt className="w-4 h-4 text-teal-400" />
+              <Receipt className="w-4 h-4 text-teal-500" />
               <div>
-                <span className="text-xs font-bold text-slate-200 block">{t.margin.vatTitle}</span>
-                <span className="text-[10px] text-slate-400">Resmi faturalı teklifler için</span>
+                <span className="text-xs font-bold text-slate-900 dark:text-slate-200 block">{t.margin.vatTitle}</span>
+                <span className="text-[10px] text-slate-500 dark:text-slate-400">Resmi faturalı teklifler için</span>
               </div>
             </div>
             <div className="w-24">
@@ -195,54 +195,54 @@ export const MarginWasteSection: React.FC<MarginWasteSectionProps> = ({ isExpand
         </div>
 
         {/* Flow Summary Calculation Card */}
-        <div className="rounded-2xl bg-slate-950/80 border border-slate-800 p-4 space-y-3">
-          <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+        <div className="rounded-2xl bg-slate-50/90 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 p-4 space-y-3">
+          <h4 className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
             Adım Adım Fiyatlandırma Akışı
           </h4>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-center text-xs">
-            <div className="p-2 rounded-xl bg-slate-900 border border-slate-800">
-              <span className="text-[10px] text-slate-400 block">1. Temel Maliyet</span>
-              <span className="font-bold text-slate-200 font-mono mt-0.5 block">
+            <div className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 block">1. Temel Maliyet</span>
+              <span className="font-bold text-slate-900 dark:text-slate-200 font-mono mt-0.5 block">
                 {formatCurrency(b.rawBaseCost, activeCurrency)}
               </span>
             </div>
 
-            <div className="p-2 rounded-xl bg-slate-900 border border-slate-800">
-              <span className="text-[10px] text-amber-400 block">+ Fire Payı (%{marginRisk.wasteRiskPercentage})</span>
-              <span className="font-bold text-amber-300 font-mono mt-0.5 block">
+            <div className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+              <span className="text-[10px] text-amber-600 dark:text-amber-400 block">+ Fire (%{marginRisk.wasteRiskPercentage})</span>
+              <span className="font-bold text-amber-600 dark:text-amber-300 font-mono mt-0.5 block">
                 +{formatCurrency(b.wasteAmount, activeCurrency)}
               </span>
             </div>
 
-            <div className="p-2 rounded-xl bg-slate-900 border border-slate-800">
-              <span className="text-[10px] text-emerald-400 block">+ Net Kar (%{marginRisk.targetProfitMarginPercentage})</span>
-              <span className="font-bold text-emerald-300 font-mono mt-0.5 block">
+            <div className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+              <span className="text-[10px] text-emerald-600 dark:text-emerald-400 block">+ Kar (%{marginRisk.targetProfitMarginPercentage})</span>
+              <span className="font-bold text-emerald-600 dark:text-emerald-300 font-mono mt-0.5 block">
                 +{formatCurrency(b.profitAmount, activeCurrency)}
               </span>
             </div>
 
-            <div className="p-2 rounded-xl bg-slate-900 border border-slate-800">
-              <span className="text-[10px] text-purple-400 block">
+            <div className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+              <span className="text-[10px] text-purple-600 dark:text-purple-400 block">
                 {b.discountAmount > 0 ? `- İndirim (%${marginRisk.discountPercentage})` : 'İndirim'}
               </span>
-              <span className="font-bold text-purple-300 font-mono mt-0.5 block">
+              <span className="font-bold text-purple-600 dark:text-purple-300 font-mono mt-0.5 block">
                 {b.discountAmount > 0 ? `-${formatCurrency(b.discountAmount, activeCurrency)}` : '0'}
               </span>
             </div>
 
-            <div className="p-2 rounded-xl bg-slate-900 border border-slate-800">
-              <span className="text-[10px] text-teal-400 block">
+            <div className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+              <span className="text-[10px] text-teal-600 dark:text-teal-400 block">
                 {b.taxAmount > 0 ? `+ KDV (%${marginRisk.vatTaxPercentage})` : 'KDV'}
               </span>
-              <span className="font-bold text-teal-300 font-mono mt-0.5 block">
+              <span className="font-bold text-teal-600 dark:text-teal-300 font-mono mt-0.5 block">
                 {b.taxAmount > 0 ? `+${formatCurrency(b.taxAmount, activeCurrency)}` : '0'}
               </span>
             </div>
 
-            <div className="p-2 rounded-xl bg-gradient-to-br from-indigo-900/60 to-purple-900/60 border border-indigo-500/40">
-              <span className="text-[10px] text-amber-300 font-bold block">Nihai Satış</span>
-              <span className="font-black text-amber-300 font-mono mt-0.5 block text-sm">
+            <div className="p-2 rounded-xl bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/60 dark:to-purple-900/60 border border-indigo-200 dark:border-indigo-500/40 shadow-sm">
+              <span className="text-[10px] text-indigo-700 dark:text-amber-300 font-bold block">Nihai Satış</span>
+              <span className="font-black text-indigo-900 dark:text-amber-300 font-mono mt-0.5 block text-sm">
                 {formatCurrency(b.finalSellingPrice, activeCurrency)}
               </span>
             </div>

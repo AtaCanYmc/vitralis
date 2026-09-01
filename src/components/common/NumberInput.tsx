@@ -1,3 +1,7 @@
+/* Hallmark · component: number-input · genre: editorial/atelier · theme: cobalt-atelier
+ * states: default · hover · focus-visible · active · disabled
+ */
+
 import React from 'react';
 
 interface NumberInputProps {
@@ -44,14 +48,14 @@ export const NumberInput: React.FC<NumberInputProps> = ({
   return (
     <div className={`flex flex-col ${className}`}>
       {label && (
-        <label className="text-xs font-semibold text-slate-300 dark:text-slate-300 mb-1 flex items-center justify-between">
-          <span>{label}</span>
-          {helpText && <span className="text-[11px] font-normal text-slate-400">{helpText}</span>}
+        <label className="text-[11px] font-semibold text-slate-300 mb-1 flex items-center justify-between">
+          <span className="truncate">{label}</span>
+          {helpText && <span className="text-[10px] font-normal text-slate-400 font-mono">{helpText}</span>}
         </label>
       )}
       <div className="relative flex items-center rounded-xl overflow-hidden group">
         {prefix && (
-          <span className="absolute left-3 text-slate-400 text-xs font-medium pointer-events-none select-none">
+          <span className="absolute left-2.5 text-slate-400 text-xs font-mono font-medium pointer-events-none select-none">
             {prefix}
           </span>
         )}
@@ -64,12 +68,12 @@ export const NumberInput: React.FC<NumberInputProps> = ({
           onChange={handleChange}
           placeholder={placeholder || '0'}
           disabled={disabled}
-          className={`w-full py-2 bg-slate-900/60 dark:bg-slate-900/70 border border-slate-700/60 rounded-xl text-slate-100 font-mono text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/50 transition-all ${
-            prefix ? 'pl-8' : 'pl-3'
-          } ${suffix ? 'pr-12' : 'pr-3'} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+          className={`glass-input w-full py-1.5 rounded-xl font-mono text-xs font-medium ${
+            prefix ? 'pl-7' : 'pl-2.5'
+          } ${suffix ? 'pr-10' : 'pr-2.5'}`}
         />
         {suffix && (
-          <span className="absolute right-3 text-slate-400 text-xs font-medium pointer-events-none select-none">
+          <span className="absolute right-2.5 text-slate-400 text-[11px] font-mono font-medium pointer-events-none select-none">
             {suffix}
           </span>
         )}

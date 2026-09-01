@@ -75,12 +75,12 @@ export const ArtisanToolsModal: React.FC<ArtisanToolsModalProps> = ({ isOpen, on
       <div className="space-y-6">
         
         {/* 1. Solder Estimator Card */}
-        <div className="rounded-2xl bg-slate-950/60 border border-slate-800 p-4.5 space-y-3">
+        <div className="rounded-2xl bg-slate-50/80 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 p-4.5 space-y-3">
           <div className="flex items-center gap-2">
-            <Flame className="w-5 h-5 text-amber-400" />
+            <Flame className="w-5 h-5 text-amber-500" />
             <div>
-              <h4 className="font-bold text-sm text-slate-100">{t.toolsModal.solderEstimator}</h4>
-              <p className="text-xs text-slate-400">{t.toolsModal.solderEstimatorDesc}</p>
+              <h4 className="font-bold text-sm text-slate-900 dark:text-slate-100">{t.toolsModal.solderEstimator}</h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400">{t.toolsModal.solderEstimatorDesc}</p>
             </div>
           </div>
 
@@ -95,13 +95,13 @@ export const ArtisanToolsModal: React.FC<ArtisanToolsModalProps> = ({ isOpen, on
             />
 
             <div>
-              <label className="text-xs font-semibold text-slate-300 mb-1 block">
+              <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">
                 {t.toolsModal.beadProfile}
               </label>
               <select
                 value={beadProfile}
                 onChange={e => setBeadProfile(e.target.value as any)}
-                className="w-full bg-slate-900 border border-slate-700/60 rounded-xl px-2.5 py-2 text-xs text-slate-200 focus:outline-none focus:border-amber-500"
+                className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/60 rounded-xl px-2.5 py-2 text-xs text-slate-900 dark:text-slate-200 focus:outline-none focus:border-amber-500"
               >
                 <option value="flat">{t.toolsModal.beadFlat}</option>
                 <option value="rounded">{t.toolsModal.beadRounded}</option>
@@ -110,23 +110,23 @@ export const ArtisanToolsModal: React.FC<ArtisanToolsModalProps> = ({ isOpen, on
             </div>
           </div>
 
-          <div className="p-3 rounded-xl bg-amber-950/30 border border-amber-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div>
-              <span className="text-xs text-slate-400 block">{t.toolsModal.estimatedSolder}</span>
-              <span className="text-xl font-black text-amber-400 font-mono">
+              <span className="text-xs text-slate-500 dark:text-slate-400 block">{t.toolsModal.estimatedSolder}</span>
+              <span className="text-xl font-black text-amber-600 dark:text-amber-400 font-mono">
                 {formatWeight(estimatedSolderGrams)}
               </span>
-              <span className="text-[10px] text-slate-500 block">
+              <span className="text-[10px] text-slate-500 block font-mono">
                 (~{(estimatedSolderGrams / toolFoilMeters).toFixed(1)}g / metre lehim katsayısı)
               </span>
             </div>
 
             <button
               onClick={handleApplySolder}
-              className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+              className={`tactile-btn flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-sm ${
                 appliedSolder
                   ? 'bg-emerald-500 text-white'
-                  : 'bg-amber-600 hover:bg-amber-500 text-white shadow-md shadow-amber-950/40'
+                  : 'bg-amber-600 hover:bg-amber-500 text-white shadow-amber-950/20'
               }`}
             >
               {appliedSolder ? (
@@ -145,12 +145,12 @@ export const ArtisanToolsModal: React.FC<ArtisanToolsModalProps> = ({ isOpen, on
         </div>
 
         {/* 2. Foil Estimator Card */}
-        <div className="rounded-2xl bg-slate-950/60 border border-slate-800 p-4.5 space-y-3">
+        <div className="rounded-2xl bg-slate-50/80 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 p-4.5 space-y-3">
           <div className="flex items-center gap-2">
-            <Layers className="w-5 h-5 text-indigo-400" />
+            <Layers className="w-5 h-5 text-indigo-500" />
             <div>
-              <h4 className="font-bold text-sm text-slate-100">{t.toolsModal.foilEstimator}</h4>
-              <p className="text-xs text-slate-400">{t.toolsModal.foilEstimatorDesc}</p>
+              <h4 className="font-bold text-sm text-slate-900 dark:text-slate-100">{t.toolsModal.foilEstimator}</h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400">{t.toolsModal.foilEstimatorDesc}</p>
             </div>
           </div>
 
@@ -173,10 +173,10 @@ export const ArtisanToolsModal: React.FC<ArtisanToolsModalProps> = ({ isOpen, on
             />
           </div>
 
-          <div className="p-3 rounded-xl bg-indigo-950/30 border border-indigo-500/20 flex items-center justify-between">
+          <div className="p-3 rounded-xl bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-500/20 flex items-center justify-between">
             <div>
-              <span className="text-xs text-slate-400 block">{t.toolsModal.estimatedFoil}</span>
-              <span className="text-xl font-black text-indigo-300 font-mono">
+              <span className="text-xs text-slate-500 dark:text-slate-400 block">{t.toolsModal.estimatedFoil}</span>
+              <span className="text-xl font-black text-indigo-700 dark:text-indigo-300 font-mono">
                 {estimatedFoilMeters} Metre
               </span>
             </div>
@@ -185,7 +185,7 @@ export const ArtisanToolsModal: React.FC<ArtisanToolsModalProps> = ({ isOpen, on
                 setToolFoilMeters(estimatedFoilMeters);
                 updateFoil({ lengthMeters: estimatedFoilMeters });
               }}
-              className="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all"
+              className="tactile-btn px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all"
             >
               Folyoya Yaz
             </button>
@@ -193,12 +193,12 @@ export const ArtisanToolsModal: React.FC<ArtisanToolsModalProps> = ({ isOpen, on
         </div>
 
         {/* 3. Circle Glass Area Calculator */}
-        <div className="rounded-2xl bg-slate-950/60 border border-slate-800 p-4.5 space-y-3">
+        <div className="rounded-2xl bg-slate-50/80 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 p-4.5 space-y-3">
           <div className="flex items-center gap-2">
-            <Circle className="w-5 h-5 text-sky-400" />
+            <Circle className="w-5 h-5 text-sky-500" />
             <div>
-              <h4 className="font-bold text-sm text-slate-100">{t.toolsModal.circleAreaCalc}</h4>
-              <p className="text-xs text-slate-400">Daire veya madalyon camların alanını hesaplayıp projeye ekleyin</p>
+              <h4 className="font-bold text-sm text-slate-900 dark:text-slate-100">{t.toolsModal.circleAreaCalc}</h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400">Daire veya madalyon camların alanını hesaplayıp projeye ekleyin</p>
             </div>
           </div>
 
@@ -212,16 +212,16 @@ export const ArtisanToolsModal: React.FC<ArtisanToolsModalProps> = ({ isOpen, on
               suffix="cm"
             />
 
-            <div className="p-3 rounded-xl bg-sky-950/30 border border-sky-500/20 flex items-center justify-between">
+            <div className="p-3 rounded-xl bg-sky-50 dark:bg-sky-950/30 border border-sky-200 dark:border-sky-500/20 flex items-center justify-between">
               <div>
-                <span className="text-[11px] text-slate-400 block">{t.toolsModal.circleAreaResult}</span>
-                <span className="text-sm font-bold text-sky-300 font-mono">
+                <span className="text-[11px] text-slate-500 dark:text-slate-400 block">{t.toolsModal.circleAreaResult}</span>
+                <span className="text-sm font-bold text-sky-700 dark:text-sky-300 font-mono">
                   {circleAreaSqCm.toFixed(1)} cm² ({circleAreaSqM.toFixed(4)} m²)
                 </span>
               </div>
               <button
                 onClick={handleAddCircleGlass}
-                className="px-3 py-1.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold transition-all"
+                className="tactile-btn px-3 py-1.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold transition-all"
               >
                 Cam Ekle
               </button>

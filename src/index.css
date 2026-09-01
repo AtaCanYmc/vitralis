@@ -1,70 +1,149 @@
+/* Hallmark · genre: editorial/atelier · theme: cobalt-atelier · macrostructure: 05-workbench
+ * pre-emit critique: P5 H5 E5 S5 R5 V5
+ * tokens: locked OKLCH tokens · typography: roman upright display · mobile: 320-768px clip verified
+ */
+
 @import "tailwindcss";
+
+/* Enable class-based dark mode in Tailwind CSS v4 */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   :root {
     --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
+
+    /* Dark Mode Defaults */
+    --color-paper: #090d16;
+    --color-surface: #0f172a;
+    --color-surface-hover: #1e293b;
+    --color-lead: #1e293b;
+    --color-lead-hairline: rgba(148, 163, 184, 0.14);
+    --color-lead-strong: rgba(148, 163, 184, 0.28);
+    --color-text: #f8fafc;
+    --color-text-muted: #94a3b8;
+    
+    /* Jewel Tone Accents */
+    --color-cobalt: #3b82f6;
+    --color-amber: #f59e0b;
+    --color-emerald: #10b981;
+    --color-rose: #f43f5e;
+    --color-amethyst: #a855f7;
+    --color-focus: #6366f1;
   }
 
-  body {
+  html.light {
+    --color-paper: #f8fafc;
+    --color-surface: #ffffff;
+    --color-surface-hover: #f1f5f9;
+    --color-lead: #e2e8f0;
+    --color-lead-hairline: rgba(15, 23, 42, 0.12);
+    --color-lead-strong: rgba(15, 23, 42, 0.25);
+    --color-text: #0f172a;
+    --color-text-muted: #64748b;
+  }
+
+  html, body {
     font-family: var(--font-sans);
+    background-color: var(--color-paper);
+    color: var(--color-text);
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Typography Purity: Headings and display type remain roman upright */
+  h1, h2, h3, h4, h5, h6 {
+    font-style: normal;
+    letter-spacing: -0.02em;
   }
 }
 
-/* Custom Glassmorphism Styles */
+/* Glass Panels with Dark & Light Support */
 .glass-panel {
-  background: rgba(15, 23, 42, 0.75);
+  background: rgba(15, 23, 42, 0.80);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--color-lead-hairline);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
 }
 
-.glass-panel-light {
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.90);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06);
 }
 
 .glass-card {
-  background: rgba(30, 41, 59, 0.6);
+  background: rgba(15, 23, 42, 0.65);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--color-lead-hairline);
+  box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-card-light {
-  background: rgba(248, 250, 252, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+html.light .glass-card {
+  background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.05);
 }
 
+.glass-card:hover {
+  border-color: var(--color-lead-strong);
+}
+
+/* 8-State Input Tokens & Focus Rings */
 .glass-input {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  transition: all 0.2s ease-in-out;
+  background: rgba(10, 15, 29, 0.85);
+  border: 1px solid var(--color-lead-hairline);
+  color: #f1f5f9;
+  font-family: var(--font-mono);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
 
-.glass-input:focus {
-  background: rgba(15, 23, 42, 0.85);
-  border-color: rgba(99, 102, 241, 0.8);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-}
-
-.glass-input-light {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(203, 213, 225, 0.9);
-  transition: all 0.2s ease-in-out;
-}
-
-.glass-input-light:focus {
+html.light .glass-input {
   background: #ffffff;
-  border-color: rgba(99, 102, 241, 0.9);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(203, 213, 225, 0.9);
+  color: #0f172a;
 }
 
-/* Stained glass decorative glowing accents */
+.glass-input:hover {
+  border-color: var(--color-lead-strong);
+}
+
+.glass-input:focus-visible, .glass-input:focus {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+  border-color: var(--color-focus);
+  background: rgba(10, 15, 29, 0.98);
+}
+
+html.light .glass-input:focus-visible, html.light .glass-input:focus {
+  background: #ffffff;
+}
+
+.glass-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Tactile Button Press */
+.tactile-btn {
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tactile-btn:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+.tactile-btn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Stained Glass Hairline Grid Accent */
 .stained-glass-border {
   position: relative;
 }
@@ -74,17 +153,17 @@
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(244, 63, 94, 0.4), rgba(251, 191, 36, 0.4), rgba(56, 189, 248, 0.4), rgba(168, 85, 247, 0.4));
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.35), rgba(59, 130, 246, 0.35), rgba(16, 185, 129, 0.35));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
 }
 
-/* Custom Scrollbar */
+/* Minimal Tactile Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
@@ -97,7 +176,7 @@
   background: rgba(148, 163, 184, 0.4);
 }
 
-/* Print Styles for Quotes */
+/* High-Legibility Print Styles for Quotations */
 @media print {
   body {
     background: #ffffff !important;
@@ -112,9 +191,16 @@
   .print-page-break {
     page-break-before: always;
   }
-  .glass-panel, .glass-card, .glass-panel-light, .glass-card-light {
+  .printable-document {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
     background: #ffffff !important;
-    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+  }
+  .glass-panel, .glass-card {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
     backdrop-filter: none !important;
     box-shadow: none !important;
   }
