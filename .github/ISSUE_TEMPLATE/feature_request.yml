@@ -1,0 +1,40 @@
+name: ✨ Feature Request
+description: Suggest an idea or new artisan calculation module for Vitralis
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea to make stained glass cost estimation better? Share your thoughts below!
+
+  - type: input
+    id: feature-title
+    attributes:
+      label: Feature Title
+      description: A clear and concise title for the suggested feature.
+      placeholder: e.g. Add 3D Dome Tiffany Segment Calculator
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Motivation
+      description: Is your feature request related to a problem or workshop pain point?
+      placeholder: Describe why this feature is needed in a stained glass studio.
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution / Workshop Heuristics
+      description: Describe the solution you'd like and any formulas/standards to use.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Approaches Considered
+      description: Any alternative solutions or workarounds you've considered?

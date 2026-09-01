@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Community Discussions & Questions
+    url: https://github.com/atacan/vitralis/discussions
+    about: Ask questions, share stained glass project recipes, or discuss studio setups.
+  - name: 🔒 Security Vulnerability
+    url: https://github.com/atacan/vitralis/security/advisories/new
+    about: Report a security vulnerability privately.

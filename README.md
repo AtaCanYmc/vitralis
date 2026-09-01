@@ -415,30 +415,21 @@ Vitralis is engineered as a modern Progressive Web App:
 
 ---
 
-## 🤝 Contributing & Conventional Commits
+## 🤝 Contributing & Community
 
-Contributions are welcome! Please follow the [Conventional Commits](https://www.conventionalcommits.org/) standard for
-automatic changelog generation:
+Contributions are warmly welcome! Please read our guidelines before submitting pull requests:
 
-- `feat: ...` for new features or capabilities
-- `fix: ...` for bug fixes and stability improvements
-- `perf: ...` for performance optimizations
-- `refactor: ...` for code structure refactoring
-- `style: ...` for UI/UX styling and layout adjustments
-- `docs: ...` for documentation updates
-- `test: ...` for adding or updating unit tests
-- `chore: ...` for build, dependencies, and tooling maintenance
-
-```bash
-git commit -m "feat(calculator): add bevel cluster calculation support"
-```
+* 📖 **[Contribution Guidelines](CONTRIBUTING.md)**: Development setup, workflow, and coding standards.
+* 📜 **[Code of Conduct](CODE_OF_CONDUCT.md)**: Our pledge to a welcoming and inclusive community.
+* 🔒 **[Security Policy](SECURITY.md)**: Reporting vulnerabilities and client-side security standards.
+* 📝 **[Changelog](CHANGELOG.md)**: Full record of releases and version history.
+* 📐 **[Calculation Formulas Guide](docs/FORMULAS.md)**: In-depth mathematical breakdowns and artisan heuristics.
 
 ---
 
 ## 📜 License
 
-This project is licensed under the **MIT License** — feel free to use, modify, and distribute for personal, studio, or
-commercial purposes.
+This project is licensed under the **[MIT License](LICENSE)** — feel free to use, modify, and distribute for personal, studio, or commercial purposes.
 
 ---
 
