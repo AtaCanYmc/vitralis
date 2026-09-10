@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0](https://github.com/AtaCanYmc/vitralis/compare/vitralis-v1.1.0...vitralis-v1.2.0) (2026-09-10)
+
+
+### ✨ Features & New Capabilities
+
+* add safe-area insets for modern mobile devices and adjust header padding ([ce04ebd](https://github.com/AtaCanYmc/vitralis/commit/ce04ebde5ec3423ff428e88e594e05eeb3fe9d8b))
+* enhance layout and styling for responsiveness in various components ([81080a0](https://github.com/AtaCanYmc/vitralis/commit/81080a025a66622602e2b8dcb02c9ad1a3f562df))
+* replace hardcoded logo paths with dynamic LOGO_URL constant ([6891c58](https://github.com/AtaCanYmc/vitralis/commit/6891c587ec3cb7319b3ddf7cffb2e3a044fa9cb0))
+
+
+### 🧹 Maintenance
+
+* **ci:** bump actions/deploy-pages from 4 to 5 ([46c2f3b](https://github.com/AtaCanYmc/vitralis/commit/46c2f3b0ce758d1248a601386d5241ee6ec0e686))
+* **ci:** bump actions/deploy-pages from 4 to 5 ([dc1e4d5](https://github.com/AtaCanYmc/vitralis/commit/dc1e4d54ec8abd652506a0fbc4b56605c04e2ed7))
+* **ci:** bump googleapis/release-please-action from 4 to 5 ([29f5f89](https://github.com/AtaCanYmc/vitralis/commit/29f5f89f2baa189410775fa055c9a2ca85a539f6))
+* **ci:** bump googleapis/release-please-action from 4 to 5 ([3898839](https://github.com/AtaCanYmc/vitralis/commit/38988395a0fbb273ccf2af931356fd0f28d6e2b5))
+* **deps:** bump lucide-react in the core-dependencies group ([#12](https://github.com/AtaCanYmc/vitralis/issues/12)) ([8846d2c](https://github.com/AtaCanYmc/vitralis/commit/8846d2c54a88e9fc7639bd575c90389d17e5e714))
+* **deps:** bump the dev-dependencies group with 5 updates ([b6cfc27](https://github.com/AtaCanYmc/vitralis/commit/b6cfc277188a514e0a0b65e83863e4bfcf7f077e))
+* **deps:** bump the dev-dependencies group with 5 updates ([1f6b326](https://github.com/AtaCanYmc/vitralis/commit/1f6b326159441ec2c09b82ce2788ebf0118dfe15))
+
 ## [1.1.0](https://github.com/AtaCanYmc/vitralis/compare/vitralis-v1.0.0...vitralis-v1.1.0) (2026-09-01)
 
 
